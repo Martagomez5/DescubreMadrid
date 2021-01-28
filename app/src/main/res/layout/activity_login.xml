@@ -7,7 +7,7 @@
     tools:context=".Login">
 
     <Button
-        android:id="@+id/button_iniciarsesion"
+        android:id="@+id/btn_iniciosesion"
         android:layout_width="203dp"
         android:layout_height="76dp"
         android:text="Iniciar sesion"
@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.748" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/email_iniciosesion"
         android:layout_width="248dp"
         android:layout_height="54dp"
         android:ems="10"
@@ -32,14 +32,15 @@
         app:layout_constraintVertical_bias="0.319" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/contraseña_iniciosesion"
         android:layout_width="246dp"
         android:layout_height="49dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:textAllCaps="true"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/black"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
