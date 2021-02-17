@@ -40,8 +40,8 @@ public class Login extends AppCompatActivity {
                 correo=textcorreo.getText().toString();
                 pass=textcontra.getText().toString();
                 if(!correo.isEmpty() && !pass.isEmpty()){
-                    validarUsuario("http://213.37.147.60:80/proyecto/validarusuario.php");
-
+                    //validarUsuario("http://213.37.147.60/proyecto/validarusuario.php");
+                    validarUsuario("https://descubremadrid.000webhostapp.com/descubreMadrid/validarusuario.php");
                 }
                 else{
                     Toast.makeText(Login.this, "No se permiten campos vacios", Toast.LENGTH_SHORT).show();
@@ -57,7 +57,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if(!response.isEmpty()){
-                    Intent intent = new Intent(getApplicationContext(), Principal.class);
+                    Intent intent = new Intent(getApplicationContext(), Lugar.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(Login.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
