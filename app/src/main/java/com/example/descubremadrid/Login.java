@@ -4,9 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +31,8 @@ public class Login extends AppCompatActivity {
   EditText textcorreo,textcontra;
   Button btnlog;
   String correo,pass;
+  TextView registrarse;
+  CheckBox mostrarcontraseña;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,11 @@ public class Login extends AppCompatActivity {
         textcorreo=findViewById(R.id.email_iniciosesion);
         textcontra=findViewById(R.id.contraseña_iniciosesion);
         btnlog=findViewById(R.id.btn_iniciosesion);
+        registrarse=findViewById(R.id.textViewRegistrate);
+        mostrarcontraseña=findViewById(R.id.CheckBoxMostrarContraseña);
+
+        super.onBackPressed();
+        mostrarContraseña();
 
         btnlog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +63,27 @@ public class Login extends AppCompatActivity {
         });
 
 
+        registrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Registro.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    private void mostrarContraseña(){
+        mostrarcontraseña.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                textcontra.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    textcontra.setInputType(129);
+                }
+            }
+        });
     }
 
     private void validarUsuario(String URL){
