@@ -3,8 +3,11 @@
     package="com.example.descubremadrid">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-feature android:name="android.hardware.location.gps"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -14,22 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DescubreMadrid"
         android:usesCleartextTraffic="true">
-
-        <activity
-            android:name=".Lugar"
-            android:label="@string/title_activity_lugar"
-            android:screenOrientation="portrait"
-        android:theme="@style/Theme.DescubreMadrid.NoActionBar">
-        </activity>
+        <activity android:name=".Lugar"></activity>
+        <activity android:name=".menuprincipalActivity" />
         <activity android:name=".Registro" />
-
-
         <activity
             android:name=".Login"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait" />
-
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

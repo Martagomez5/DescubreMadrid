@@ -34,6 +34,8 @@ public class Login extends AppCompatActivity {
   TextView registrarse;
   CheckBox mostrarcontraseña;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,21 +46,32 @@ public class Login extends AppCompatActivity {
         registrarse=findViewById(R.id.textViewRegistrate);
         mostrarcontraseña=findViewById(R.id.CheckBoxMostrarContraseña);
 
-        super.onBackPressed();
+
+
         mostrarContraseña();
 
         btnlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                correo=textcorreo.getText().toString();
-                pass=textcontra.getText().toString();
-                if(!correo.isEmpty() && !pass.isEmpty()){
-                    //validarUsuario("http://213.37.147.60/proyecto/validarusuario.php");
+
+              
+               if (textcorreo.getText().toString().isEmpty() && textcontra.getText().toString().isEmpty()){
+                    textcorreo.setError("El correo no puede estar vacio");
+                    textcontra.setError("La contraseña no puede estar vacia");
+
+               }else if(textcorreo.getText().toString().isEmpty() ) {
+
+                    textcorreo.setError("El correo no puede estar vacio");
+
+               }else if(textcontra.getText().toString().isEmpty()) {
+
+                    textcontra.setError("La contraseña no puede estar vacia");
+
+               }else{
+
                     validarUsuario("https://descubremadrid.000webhostapp.com/descubreMadrid/validarusuario.php");
-                }
-                else{
-                    Toast.makeText(Login.this, "No se permiten campos vacios", Toast.LENGTH_SHORT).show();
-                }
+
+               }
             }
         });
 
@@ -115,5 +128,9 @@ public class Login extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 }

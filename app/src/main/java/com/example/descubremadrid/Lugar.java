@@ -1,39 +1,44 @@
 package com.example.descubremadrid;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
+import com.example.descubremadrid.Adapter.Lugares;
+import com.example.descubremadrid.Adapter.LugaresAdapter;
 
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
-import com.example.descubremadrid.ui.main.SectionsPagerAdapter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Lugar extends AppCompatActivity {
+
+    RecyclerView recyclerLugares;
+    LugaresAdapter lugaresAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lugar);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        
+        inicializarElementos();
+    }
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+    private void inicializarElementos() {
+        recyclerLugares=findViewById(R.id.idRecycler);
+        recyclerLugares.setLayoutManager(new LinearLayoutManager(this));
+
+        List<Lugares> lugarList = new ArrayList<>();
+
+
+        for (int i = 0;i<20;i++){
+
+            lugarList.add(new Lugares(i,"Bernabeu","Estadio","Estadio Real Madrid","foto"+i));
+        }
+
+        lugaresAdapter = new LugaresAdapter(lugarList,this);
+
     }
 }
