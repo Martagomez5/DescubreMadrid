@@ -7,18 +7,26 @@
 
     <uses-feature android:name="android.hardware.location.gps" />
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/_53181_p480ct_681"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.DescubreMadrid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Lugar"></activity>
-        <activity android:name=".menuprincipalActivity" />
+        <activity android:name=".TarjetaTransporte"></activity>
+        <activity android:name=".MapaRuta2" />
+        <activity android:name=".MapaRuta1" />
+        <activity android:name=".BusTuristico" />
+        <activity android:name=".MapaTurismo" />
+        <activity android:name=".MenuMapas" />
+        <activity android:name=".MapaCercanias" />
+        <activity android:name=".MapaMetro" />
+        <activity android:name=".Lugar" />
+        <activity android:name=".menuprincipal" />
         <activity android:name=".Registro" />
         <activity
             android:name=".Login"

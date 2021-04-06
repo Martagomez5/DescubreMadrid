@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TarjetaTransporte">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewVentajas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="TARJETA TURISTICA TRANSPORTE"
+                    android:textColor="@color/teal_700"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewInfoTarjeta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="El título turístico tiene carácter personal y permite efectuar un número ilimitado de desplazamientos en el conjunto de servicios de transporte regular de viajeros que operan en el interior de la zona elegida, con las excepciones que se indiquen.  Este título existe en modalidad Tarjeta Transporte Público Multi."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewQueIncluye"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginTop="5sp"
+                    android:gravity="center_horizontal"
+                    android:text="ADQUISICIÓN"
+                    android:textColor="@color/teal_700"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewInfoAdquirir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="El titulo turístico se puede adquirir en:"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewAeropuerto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="•En el Aeropuerto Adolfo Suárez Madrid-Barajas  \n-Terminal T1-T2-T3 \nOficina de Ventas e Información Turística(T2) \nHorario: lunes a domingo de 8:00 a 20:00 h \n Servicio de informacion Turística: lunes a domingo de 10:00 a 18:00 h. \n-Terminal T4 \nOficina de Ventas e Informacion Turística \nHorario: lunes a domingo de 8:00 a 20:00 h. \nServiciode información Turística: lunes a domingo de 10:00 a 20:00 h.  "
+                    android:textSize="20sp"
+                    />
+                <TextView
+                    android:id="@+id/textViewDemas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="•Todas las estaciones de la red de Metro \n•En la sede del Consorcio Regional de Transportes de Madrid, Plaza de Descubridor Diego de Orgás, 3.\nHorario: lunes a viernes de 8:00 a 20:00 h."
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewEligeTuTarjeta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginTop="5sp"
+                    android:text="CARGA"
+                    android:textColor="@color/teal_700"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+
+                <TextView
+                    android:id="@+id/textViewPreciosAdultos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Las tarjetas se pueden cargar en: \n•Maquinas automáticas instaladas en las Estaciones de Metro de Madrid \nMaquinas automáticas instaladas en las Estaciones de Metro Ligero (ML1, ML2 y ML3) \nIntercambiadores de Transportes \n•Máquinas automáticas instaladas en las Estaciones de Cercanías \n•Cajeros automáticos de Bankia \n•Estancos y puntos de venta autorizados"
+                    android:textSize="20sp" />
+
+
+
+                <TextView
+                    android:id="@+id/textViewDondeAdquirirla"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginTop="5sp"
+                    android:text="TIPOS DE TITULO TURÍSTICO"
+                    android:textColor="@color/teal_700"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/textViewDescuentoWeb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Descuento por compra online:"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewWeb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="www.madridcard.com"
+                    android:textSize="20sp"
+                    android:textColor="#00BCD4"/>
+
+                <TextView
+                    android:id="@+id/textViewAdquirirla"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Centro de Turismo de Plaza Payor, 27. \nHorario: lunes a domingo, de 9:30h a 20:30h. \n\nAeropuerto de Madrid-Barajas - Terminal 2 \nCentro de Atención al Viajero de Metro de Madrid \n(Terminal 2- Llegadas, entrada estación de Metro Aeropuerto Terminal 2). \nHorario: de 7 a 22 horas. \n\nQuiosco Autobús Turístico \nC/Felipe IV, entre Museo del Prado y Hotel Ritz. \nHorario: Abierto todos los dias: 10:00 - 19:30 h. \n Estación Puerta de Atocha \nGlorieta de Carlos V Atocha Renfe (L1) Grupo Vilar \nVestibulo de salidas AVE, Planta Baja. \nHorario: 8:30 - 16:30 h. Todos los dias del año. \n Principales hoteles y agencias de viajes"
+                    android:textSize="20sp" />
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

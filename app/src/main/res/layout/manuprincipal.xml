@@ -4,106 +4,204 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menuprincipalActivity">
+    tools:context=".menuprincipal">
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="391dp"
-        android:layout_height="783dp"
+        android:layout_width="390dp"
+        android:layout_height="788dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TableRow
+                android:id="@+id/twLugaresPlanos"
                 android:layout_width="match_parent"
-                android:layout_height="95dp">
+                android:layout_height="221dp">
 
-                <Button
-                    android:id="@+id/button37"
-                    android:layout_width="198dp"
+                <ImageButton
+                    android:id="@+id/btnLugares"
+                    android:layout_width="187dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    android:text="Lugares"
+                    app:srcCompat="@drawable/lugares" />
+
+                <ImageButton
+                    android:id="@+id/btnPlanos"
+                    android:layout_width="187dp"
                     android:layout_height="match_parent"
-                    android:text="Button" />
+                    android:layout_margin="5dp"
 
-                <Button
-                    android:id="@+id/button42"
-                    android:layout_width="189dp"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/mapas" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trnombres1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewLugares"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:gravity="center"
+                    android:text="LUGARES"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textViewPlanos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="PLANOS"
+                    android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trItinerariosOficinas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/btnItinerario"
+                    android:layout_width="187dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/white"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/itinerarios" />
+
+                <ImageButton
+                    android:id="@+id/btnOficinasTurismo"
+                    android:layout_width="187dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/oficinaturismo" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/button38"
+                <TextView
+                    android:id="@+id/textViewItinerarios"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:layout_margin="5dp"
+                    android:gravity="center_horizontal"
+                    android:text="ITINERARIOS"
+                    android:textSize="24sp" />
 
-                <Button
-                    android:id="@+id/button43"
+                <TextView
+                    android:id="@+id/textViewOficinasTurismo"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="OFICINAS TURISMO"
+                    android:textSize="21sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="27dp">
+
+                <ImageButton
+                    android:id="@+id/btnMadridCard"
+                    android:layout_width="187dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/tarjetatransporte" />
+
+                <ImageButton
+                    android:id="@+id/btnBusTuristico"
+                    android:layout_width="187dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/busturistico" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/button39"
+                <TextView
+                    android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:gravity="center"
+                    android:text="TARJETA TRANSPORTE"
+                    android:textSize="18sp" />
 
-                <Button
-                    android:id="@+id/button44"
+                <TextView
+                    android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:gravity="center"
+                    android:text="BUS TURISTICO"
+                    android:textSize="24sp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/button40"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Button" />
+                <ImageButton
+                    android:id="@+id/btnVistos"
+                    android:layout_width="187dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/visto" />
 
-                <Button
-                    android:id="@+id/button45"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Button" />
+                <ImageButton
+                    android:id="@+id/btnQuererVer"
+                    android:layout_width="187dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/querer_ver" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/button41"
+                <TextView
+                    android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:gravity="center"
+                    android:text="VISTOS"
+                    android:textSize="24sp" />
 
-                <Button
-                    android:id="@+id/button46"
+                <TextView
+                    android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:gravity="center"
+                    android:text="QUERER VER"
+                    android:textSize="24sp" />
             </TableRow>
         </TableLayout>
     </ScrollView>

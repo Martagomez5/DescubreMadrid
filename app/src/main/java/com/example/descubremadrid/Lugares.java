@@ -1,27 +1,21 @@
-package com.example.descubremadrid.Adapter;
+package com.example.descubremadrid;
 
 public class Lugares {
-    private int id;
+
     private String nombre;
     private String tipo;
     private String descripcion;
-    private String foto;
+    private int foto;
 
-    public Lugares(int id, String nombre, String tipo, String descripcion, String foto) {
-        this.id = id;
+    public Lugares( String nombre, String tipo, String descripcion, int foto) {
+
         this.nombre = nombre;
         this.tipo = tipo;
         this.descripcion = descripcion;
         this.foto = foto;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -47,18 +41,17 @@ public class Lugares {
         this.descripcion = descripcion;
     }
 
-    public String getFoto() {
+    public int getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(int foto) {
         this.foto = foto;
     }
 
     @Override
     public String toString() {
         return "Lugares{" +
-                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", descripcion='" + descripcion + '\'' +
