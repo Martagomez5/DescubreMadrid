@@ -66,7 +66,7 @@ public class Login extends AppCompatActivity {
 
                }else{
 
-                    validarUsuario("https://descubremadrid.000webhostapp.com/descubreMadrid/validarusuario.php");
+                    validarUsuario("https://descubremadrid.xyz/descubreMadrid/validarusuario.php");
 
                }
             }

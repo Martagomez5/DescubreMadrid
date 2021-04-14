@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="5sp"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="5sp"
+                android:gravity="center_horizontal"
+                android:text="OFICINAS DE TURISMO"
+                android:textColor="@color/teal_700"
+                android:textSize="24sp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/textViewInfoOficinas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Si eres de los clásicos que prefieren llevar un plano o mapa de Madrid, si quieres que te realicen alguna indicación o recomendación para ir a algún punto en concreto de la capital, estas son las oficinas de Turismo oficiales disponibles, y es a los únicos sitios donde os recomiendo ir a conseguir un mapa, plano o indicación, que será totalmente gratuito: \n"
+                android:textSize="20sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+
+                <Button
+                    android:id="@+id/Buttontelefono"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp"
+                    app:icon="@android:drawable/stat_sys_phone_call_forward" />
+
+                <TextView
+                    android:id="@+id/textViewTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Telefono: +34 91 578 78 10"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:layout_toRightOf="@+id/Buttontelefono"
+                    android:layout_toEndOf="@+id/Buttontelefono"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textViewListaOficinas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CENTRO DE TURISMO PLAZA MAYOR\n Dirección: Plaza Mayor, 27, 28012 Madrid \n\nPUNTO DE INFORMACÓN TURISTICA PALACIO REAL\n Dirección: Calle Bailen, C. de Requena, esquina, 28013 Madrid \n\nPUNTO DE INFORMACIÓN TURÍSTICA PASEO DEL PRADO\n Dirección: Plaza de Cánovas del Castillo \n\nPUNTO DE INFROMACIÓN TURÍSTICA PLAZA DE CALLAO\nDirección:Plaza del Callao, 28013 Madrid \n\nPUNTO DE INFORMACIÓN TURÍSTICA ESTADIO SANTIAGO BERNABÉU\nDirección: Paseo de la Castellana, 138, 28046 Madrid \n\nPUNTO DE INFORMACIÓN TURÍSTICA CENTROCENTRO\nDirección: Plazade Cibeles, 1 (Palacio de Cibeles),28014\n\nPUNTO DE INFORMACIÓN TURÍSTICA REINA SOFÍA\nCalle Santa Isabel, 52,28018, Madrid\n\nPUNTO DE INF. TURÍSTICA AEROPUERTO ADOLFO SUÁREZ MADRID-BARAJAS\n   -T2. Entre salas 5 Y 6 \n   -T4. Sala 10 \n\nSERVICIO DE ATENCIÓN AL TURISTA EXTRANJERO (SATE)\nCalle Leganitos, 19, 28013, Madrid\n\n"
+                android:textSize="20sp"
+                android:gravity="center"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

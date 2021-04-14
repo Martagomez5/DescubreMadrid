@@ -10,10 +10,10 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_prueba">prueba</string>
-    <string name="tab_text_1" size="25sp">Informacion</string>
-    <string name="tab_text_2" font-size="25sp">Imagenes</string>
-    <string name="tab_text_3">Descripcion</string>
+    <string name="tab_text_1" size="25sp">Oficinas Turismo</string>
+    <string name="tab_text_2" font-size="25sp">Mapa</string>
     <string name="title_activity_lugar">Lugar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_oficinas_turismo">OficinasTurismo</string>
 </resources>

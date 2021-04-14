@@ -7,6 +7,8 @@
 
     <uses-feature android:name="android.hardware.location.gps" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -17,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DescubreMadrid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TarjetaTransporte"></activity>
+        <activity android:name=".OficinasTurismo"></activity>
+        <activity android:name=".TarjetaTransporte" />
         <activity android:name=".MapaRuta2" />
         <activity android:name=".MapaRuta1" />
         <activity android:name=".BusTuristico" />

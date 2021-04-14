@@ -457,7 +457,7 @@ public class Registro extends AppCompatActivity {
             }
 
             else {
-                ejecutarServicio("https://descubremadrid.000webhostapp.com/descubreMadrid/registro.php");
+                ejecutarServicio("https://descubremadrid.xyz/descubreMadrid/registro.php");
 
             }
 

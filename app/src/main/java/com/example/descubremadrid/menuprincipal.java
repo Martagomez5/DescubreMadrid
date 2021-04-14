@@ -56,6 +56,9 @@ public class menuprincipal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(getApplicationContext(), OficinasTurismo.class);
+                startActivity(intent);
+
             }
         });
 

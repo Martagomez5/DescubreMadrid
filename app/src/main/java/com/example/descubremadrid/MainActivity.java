@@ -85,7 +85,7 @@ import java.util.TimerTask;
                  pb.setProgress(count);
                  if(count==100){
 
-                     Intent intent = new Intent(getApplicationContext(), Login.class);
+                     Intent intent = new Intent(getApplicationContext(),Login.class);
                      startActivity(intent);
                      t.cancel();
                  }

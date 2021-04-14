@@ -15,9 +15,7 @@ public class TarjetaTransporte extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tarjeta_transporte);
 
-        textView = findViewById(R.id.textViewWeb);
 
-        url="";
 
     }
 }

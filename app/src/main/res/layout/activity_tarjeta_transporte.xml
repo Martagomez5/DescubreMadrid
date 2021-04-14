@@ -65,7 +65,7 @@
                     android:id="@+id/textViewAeropuerto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="•En el Aeropuerto Adolfo Suárez Madrid-Barajas  \n-Terminal T1-T2-T3 \nOficina de Ventas e Información Turística(T2) \nHorario: lunes a domingo de 8:00 a 20:00 h \n Servicio de informacion Turística: lunes a domingo de 10:00 a 18:00 h. \n-Terminal T4 \nOficina de Ventas e Informacion Turística \nHorario: lunes a domingo de 8:00 a 20:00 h. \nServiciode información Turística: lunes a domingo de 10:00 a 20:00 h.  "
+                    android:text="•En el Aeropuerto Adolfo Suárez Madrid-Barajas  \n     -Terminal T1-T2-T3 \nOficina de Ventas e Información Turística(T2) \nHorario: lunes a domingo de 8:00 a 20:00 h \n Servicio de informacion Turística: lunes a domingo de 10:00 a 18:00 h. \n     -Terminal T4 \nOficina de Ventas e Informacion Turística \nHorario: lunes a domingo de 8:00 a 20:00 h. \n\nServiciode información Turística: lunes a domingo de 10:00 a 20:00 h.  "
                     android:textSize="20sp"
                     />
                 <TextView
@@ -87,6 +87,7 @@
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:layout_gravity="center_horizontal"
+                    android:gravity="center"
                     />
 
 
@@ -94,7 +95,7 @@
                     android:id="@+id/textViewPreciosAdultos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Las tarjetas se pueden cargar en: \n•Maquinas automáticas instaladas en las Estaciones de Metro de Madrid \nMaquinas automáticas instaladas en las Estaciones de Metro Ligero (ML1, ML2 y ML3) \nIntercambiadores de Transportes \n•Máquinas automáticas instaladas en las Estaciones de Cercanías \n•Cajeros automáticos de Bankia \n•Estancos y puntos de venta autorizados"
+                    android:text="Las tarjetas se pueden cargar en: \n•Maquinas automáticas instaladas en las Estaciones de Metro de Madrid \n•Maquinas automáticas instaladas en las Estaciones de Metro Ligero (ML1, ML2 y ML3) \n•Intercambiadores de Transportes \n•Máquinas automáticas instaladas en las Estaciones de Cercanías \n•Cajeros automáticos de Bankia \n•Estancos y puntos de venta autorizados"
                     android:textSize="20sp" />
 
 
@@ -110,28 +111,74 @@
                     android:text="TIPOS DE TITULO TURÍSTICO"
                     android:textColor="@color/teal_700"
                     android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    />
                 <TextView
                     android:id="@+id/textViewDescuentoWeb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Descuento por compra online:"
+                    android:text="Según su validez existen seis tipos: de 1, 2, 3, 4, 5 y 7 días naturales. \nSegún la edad existen dos tipos: normal e infantil (menores de 11 años). \n\nSe han definido dos zonas para estos abonos: zona A y zona T: \n •La zona A se corresponde con los límites de dicha zona tarifaria y coincide prácticamente con el término municipal de Madrid. \n• La zona T comprende la totalidad de la cobertura geográfica de los Abono Transportes, hasta la zona E2."
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/textViewWeb"
+                    android:id="@+id/textViewValidez"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="www.madridcard.com"
-                    android:textSize="20sp"
-                    android:textColor="#00BCD4"/>
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginTop="5sp"
+                    android:text="VALIDEZ"
+                    android:textColor="@color/teal_700"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    />
 
                 <TextView
-                    android:id="@+id/textViewAdquirirla"
+                    android:id="@+id/textViewTituloA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Centro de Turismo de Plaza Payor, 27. \nHorario: lunes a domingo, de 9:30h a 20:30h. \n\nAeropuerto de Madrid-Barajas - Terminal 2 \nCentro de Atención al Viajero de Metro de Madrid \n(Terminal 2- Llegadas, entrada estación de Metro Aeropuerto Terminal 2). \nHorario: de 7 a 22 horas. \n\nQuiosco Autobús Turístico \nC/Felipe IV, entre Museo del Prado y Hotel Ritz. \nHorario: Abierto todos los dias: 10:00 - 19:30 h. \n Estación Puerta de Atocha \nGlorieta de Carlos V Atocha Renfe (L1) Grupo Vilar \nVestibulo de salidas AVE, Planta Baja. \nHorario: 8:30 - 16:30 h. Todos los dias del año. \n Principales hoteles y agencias de viajes"
+                    android:text="Los títulos son válidos para los días naturales especificados en cada tipo de título a partir de la fecha de la primera utilización (no es necesario que coincida con la fecha de compra). La validez se extenderá en los servicios nocturnos existentes, hasta las 05:00 h del último día en vigor. \n"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/textViewInfoZonaA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Los títulos válidos para la zona A podrán utilizarse en: \n•Metro, en todas sus líneas, dentro de esta zona. (No es necesario abonar la tarifa suplemento del Aeropuerto) \n•E.M.T., en todas sus líneas de autobuses, excepto en la línea exprés al Aeropuerto. \n•RENFE*, entre las estaciones de Cercanías que se incluyen en esta zona. \n•Metro Ligero ML1. \n\n"
                     android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewTituloT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Los títulos válidos para la zona T podrán utilizarse, además de en los servicios anteriores, en los siguientes: \n•Metro, en todos los servicios. (No es necesario abonar la tarifa suplemento del Aeropuerto) \n•Servicios regulares de transporte de viajeros por carretera, en todas sus líneas, dentro de esta zona. \n•RENFE, en toda la red de Cercanías. \n•Metro Ligero ML2, ML3 y ML4. \n"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/textViewTarifas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginTop="5sp"
+                    android:text="TARIFAS"
+                    android:textColor="@color/teal_700"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/textViewInfoTarifas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="•Zona A: \n   -1 día: 8,40€ \n   -2 días: 14,20€ \n   -3 días: 18,40€ \n   -4 días: 22,60€ \n   -5 días: 26,80€ \n   -7 días: 35,40€ \n•Zona T: \n   -1 día: 17,00€ \n   -2 días: 28,40€ \n   -3 días: 35,40€ \n   -4 días: 43,00€ \n   -5 días: 50,80€ \n   -7 días: 70,80€ \n\n Los niños menores de 11 años tienen un descuento del 50% en la adquisición del titulo Turístico."
+                    android:textSize="20sp"/>
+
 
 
 
