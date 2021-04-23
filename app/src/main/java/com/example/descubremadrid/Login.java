@@ -104,7 +104,7 @@ public class Login extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), menuprincipal.class);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(Login.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Correo o contraseña incorrecta", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {

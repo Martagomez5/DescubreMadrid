@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:screenOrientation="portrait"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
@@ -74,7 +75,9 @@
                     android:text="Id"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:visibility="invisible"/>
+                    android:visibility="invisible"
+                    android:layout_toEndOf="@+id/TipoCV"
+                    android:layout_toRightOf="@+id/TipoCV"/>
 
 
 

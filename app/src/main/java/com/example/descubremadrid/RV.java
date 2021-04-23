@@ -19,6 +19,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -37,17 +38,28 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RV extends AppCompatActivity {
+public class RV extends AppCompatActivity implements SearchView.OnQueryTextListener{
     private static String URL="https://descubremadrid.xyz/descubreMadrid/datoslugares.php";
     RecyclerView recyclerView;
-    List<ListaElementos> elementos;
+    ArrayList<ListaElementos> elementos;
+
+    ListaAdaptador listAdapter;
+    SearchView searchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle_view_card_view);
+
+        initViews();
         init();
+        initListener();
 
         cargarLugares();
+    }
+
+    private void initViews(){
+        searchView = findViewById(R.id.svSearch);
     }
 
     private void init() {
@@ -64,6 +76,8 @@ public class RV extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listaAdaptador);
     }
+
+
 
     private void cargarLugares(){
 
@@ -84,22 +98,18 @@ public class RV extends AppCompatActivity {
                                 lugares.getString("direccion")
 
                         ));
-                        ListaAdaptador listAdapter = new ListaAdaptador(elementos,RV.this);
+                        listAdapter = new ListaAdaptador(elementos,RV.this);
                         recyclerView = findViewById(R.id.listRecyclerView);
                         recyclerView.setAdapter(listAdapter);
+
+
 
                         listAdapter.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(getApplicationContext(),
-                                        "Seleccion: "+elementos.get(recyclerView.getChildAdapterPosition(v)).getNombre(),
-                                        Toast.LENGTH_SHORT).show();
 
-                               // Intent intent= new Intent(getApplicationContext(),DatosLugares.class);
 
-                              //  intent.putExtra("NOMBRE", elementos.get(recyclerView.getChildAdapterPosition(v)).getNombre());
 
-                               // startActivity(intent);
                             }
                         });
 
@@ -117,5 +127,19 @@ public class RV extends AppCompatActivity {
             }
         });
         Volley.newRequestQueue(this).add(stringRequest);
+    }
+
+    private void initListener(){
+        searchView.setOnQueryTextListener(this);
+    }
+
+
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    public boolean onQueryTextChange(String newText) {
+        listAdapter.filter(newText);
+        return false;
     }
 }

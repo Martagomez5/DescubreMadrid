@@ -6,8 +6,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature android:name="android.hardware.location.gps" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -19,25 +19,56 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DescubreMadrid"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".RecycleViewCardView" />
-        <activity android:name=".OficinasTurismo" />
-        <activity android:name=".TarjetaTransporte" />
-        <activity android:name=".MapaRuta2" />
-        <activity android:name=".MapaRuta1" />
-        <activity android:name=".BusTuristico" />
-        <activity android:name=".MapaTurismo" />
-        <activity android:name=".MenuMapas" />
-        <activity android:name=".MapaCercanias" />
-        <activity android:name=".MapaMetro" />
-        <activity android:name=".Lugar" />
-        <activity android:name=".menuprincipal" />
-        <activity android:name=".Registro" />
+        <activity android:name=".Oficinas"></activity>
+        <activity
+            android:name=".DetallesLugares"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RecycleViewCardView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OficinasTurismo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TarjetaTransporte"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MapaRuta2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MapaRuta1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BusTuristico"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MapaTurismo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MenuMapas"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MapaCercanias"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MapaMetro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Lugar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menuprincipal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Registro"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Login"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

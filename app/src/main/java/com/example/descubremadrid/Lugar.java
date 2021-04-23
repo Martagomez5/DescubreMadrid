@@ -19,6 +19,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -34,30 +36,42 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lugar extends AppCompatActivity {
+public class Lugar extends AppCompatActivity implements SearchView.OnQueryTextListener{
     private static String URL="https://descubremadrid.xyz/descubreMadrid/datoslugares.php";
     RecyclerView recyclerView;
-    List<ListaElementos> elementos;
+    ArrayList<ListaElementos> elementos;
+
+    ListaAdaptador listaAdaptador;
+
+    SearchView searchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle_view_card_view);
+
+
+        initViews();
         init();
+        initListener();
 
         cargarLugares();
+    }
+
+    private void initViews(){
+        searchView = findViewById(R.id.svSearch);
     }
 
     private void init() {
 
         elementos = new ArrayList<>();
-        //elementos.add(new ListElement("Bernabeu", "Estadio"));
-        // elements.add(new ListElement("#607d8b","Wanda", "Estadio", "Estadio Atletico del Madrid"));
 
-        ListaAdaptador listAdapter= new ListaAdaptador(elementos,this);
+
+        ListaAdaptador listAdapter= new ListaAdaptador(elementos,Lugar.this);
         recyclerView = findViewById(R.id.listRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(listAdapter);
+        recyclerView.setAdapter(listaAdaptador);
     }
 
     private void cargarLugares(){
@@ -79,22 +93,22 @@ public class Lugar extends AppCompatActivity {
                                 lugares.getString("direccion")
 
                         ));
-                        ListaAdaptador listAdapter = new ListaAdaptador(elementos,Lugar.this);
+                        listaAdaptador = new ListaAdaptador(elementos,Lugar.this);
                         recyclerView = findViewById(R.id.listRecyclerView);
-                        recyclerView.setAdapter(listAdapter);
+                        recyclerView.setAdapter(listaAdaptador);
 
-                        listAdapter.setOnClickListener(new View.OnClickListener() {
+                        listaAdaptador.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Toast.makeText(getApplicationContext(),
-                                        "Seleccion: "+elementos.get(recyclerView.getChildAdapterPosition(v)).getNombre(),
+                                        "Seleccionado: "+elementos.get(recyclerView.getChildAdapterPosition(v)).getNombre(),
                                         Toast.LENGTH_SHORT).show();
 
-                                //Intent intent= new Intent(getApplicationContext(),DatosLugares.class);
+                                Intent intent= new Intent(getApplicationContext(),DetallesLugares.class);
 
-                               // intent.putExtra("NOMBRE", elementos.get(recyclerView.getChildAdapterPosition(v)).getNombre());
+                                intent.putExtra("ID", elementos.get(recyclerView.getChildAdapterPosition(v)).getIdLugar());
 
-                               // startActivity(intent);
+                                startActivity(intent);
                             }
                         });
 
@@ -112,5 +126,20 @@ public class Lugar extends AppCompatActivity {
             }
         });
         Volley.newRequestQueue(this).add(stringRequest);
+    }
+
+    private void initListener(){
+        searchView.setOnQueryTextListener(this);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        listaAdaptador.filter(newText);
+        return false;
     }
 }

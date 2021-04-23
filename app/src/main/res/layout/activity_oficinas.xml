@@ -48,27 +48,13 @@
 
 
                 <Button
-                    android:id="@+id/Buttontelefono"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="center"
-                    android:paddingLeft="14dp"
-                    android:paddingRight="14dp"
-                    app:icon="@android:drawable/stat_sys_phone_call_forward" />
-
-                <TextView
-                    android:id="@+id/textViewTelefono"
-                    android:layout_width="match_parent"
+                    android:id="@+id/buttonTelefono"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Telefono: +34 91 578 78 10"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="center_vertical"
-                    android:layout_toRightOf="@+id/Buttontelefono"
-                    android:layout_toEndOf="@+id/Buttontelefono"/>
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:text="Telefono"
+                    app:icon="@drawable/outline_phone_in_talk_black_24dp" />
 
             </RelativeLayout>
 

@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.opengl.GLES30;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +21,13 @@ import com.example.descubremadrid.ListaElementos;
 
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHolder>
         implements View.OnClickListener{
+
 
     private View.OnClickListener listener;
 
@@ -33,10 +37,14 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
     private Context context;
     ListaElementos listElement;
 
+    private List<ListaElementos> elementosOriginales;
+
     public ListaAdaptador(List<ListaElementos> itemList,Context context) {
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
+        this.elementosOriginales = new ArrayList<>();
+        elementosOriginales.addAll(mData);
 
     }
 
@@ -71,6 +79,35 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    public void filter(final String strSearch){
+
+        if (strSearch.length() ==0){
+            mData.clear();
+            mData.addAll(elementosOriginales);
+        }
+        else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+
+                List<ListaElementos> collect = mData.stream()
+                        .filter(i -> i.getNombre().toLowerCase().contains(strSearch))
+                        .collect(Collectors.toList());
+                mData.clear();
+                mData.addAll(collect);
+            }
+            else {
+                mData.clear();
+                for(ListaElementos i : elementosOriginales){
+                    if (i.getNombre().toLowerCase().contains(strSearch)){
+                        mData.add(i);
+                    }
+                }
+            }
+        }
+
+        notifyDataSetChanged();
+
     }
 
     public void setItems(List<ListaElementos> items){mData = items;}
