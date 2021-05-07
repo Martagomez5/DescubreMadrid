@@ -62,9 +62,6 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
 
         listElement = mData.get(position);
 
-        //Glide.with(context).load(listElement.getDireccion()).into(holder.imageView);
-
-        //holder.bindData(mData.get(position));
         holder.codigo.setText(listElement.getIdLugar());
         holder.nombre.setText(listElement.getNombre());
         holder.tipo.setText(listElement.getTipo());
@@ -93,6 +90,8 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
                 List<ListaElementos> collect = mData.stream()
                         .filter(i -> i.getNombre().toLowerCase().contains(strSearch))
                         .collect(Collectors.toList());
+
+
                 mData.clear();
                 mData.addAll(collect);
             }
@@ -133,14 +132,7 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
 
         }
 
-         /*void bindData(final ListElement item){
-          //imageView.setImageDrawable(item.getImageView().getDrawable());
 
-           // imageView.setImageURI(Glide.with(context).load(item.getDireccion()).into(imageView));
-            nombre.setText(item.getNombre());
-            tipo.setText(item.getTipo());
-            Picasso.with(context).load("https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/gallery/5548e20741444aef0ed38f34/prado.jpg").centerCrop().into(imageView);
-         }*/
     }
 
 }

@@ -18,19 +18,28 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
-public class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity{
   EditText textcorreo,textcontra;
   Button btnlog;
   String correo,pass;
   TextView registrarse;
   CheckBox mostrarcontraseña;
 
+    public static String id2;
+    JsonObjectRequest jsonObjectRequest;
+    RequestQueue request;
 
 
     @Override
@@ -83,6 +92,8 @@ public class Login extends AppCompatActivity {
 
     }
 
+
+
     private void mostrarContraseña(){
         mostrarcontraseña.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
@@ -102,7 +113,9 @@ public class Login extends AppCompatActivity {
             public void onResponse(String response) {
                 if(!response.isEmpty()){
                     Intent intent = new Intent(getApplicationContext(), menuprincipal.class);
+                    intent.putExtra("Correo", textcorreo.getText().toString());
                     startActivity(intent);
+
                 }else{
                     Toast.makeText(Login.this, "Correo o contraseña incorrecta", Toast.LENGTH_SHORT).show();
                 }
@@ -130,4 +143,5 @@ public class Login extends AppCompatActivity {
     public void onBackPressed() {
         moveTaskToBack(true);
     }
+
 }

@@ -106,7 +106,14 @@ public class Registro extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                        if(response.equals("Ya existe este correo")){
+                            Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                        }else{
+                            Intent intent = new Intent(getApplicationContext(), Login.class);
+                            startActivity(intent);
+                        }
+
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -455,6 +462,10 @@ public class Registro extends AppCompatActivity {
             else if (!validarEmail(editTextCorreo.getText().toString())){
                 editTextCorreo.setError("Formato Email no válido");
             }
+            /*else if( (editTextCorreo.getText().toString().contains(" "))||(editTextContraseña.getText().toString().contains(" "))||(editTextComprobarContraseña.getText().toString().contains(" "))){
+                Toast.makeText(this,"No puede contener espacios ",Toast.LENGTH_SHORT).show();
+
+            }*/
 
             else {
                 ejecutarServicio("https://descubremadrid.xyz/descubreMadrid/registro.php");

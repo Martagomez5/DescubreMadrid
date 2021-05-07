@@ -41,6 +41,9 @@ public class Lugar extends AppCompatActivity implements SearchView.OnQueryTextLi
     RecyclerView recyclerView;
     ArrayList<ListaElementos> elementos;
 
+
+    String idPersona;
+
     ListaAdaptador listaAdaptador;
 
     SearchView searchView;
@@ -49,6 +52,10 @@ public class Lugar extends AppCompatActivity implements SearchView.OnQueryTextLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle_view_card_view);
+
+        Intent intent = getIntent();
+        idPersona = intent.getStringExtra("idPersona");
+
 
 
         initViews();
@@ -107,6 +114,7 @@ public class Lugar extends AppCompatActivity implements SearchView.OnQueryTextLi
                                 Intent intent= new Intent(getApplicationContext(),DetallesLugares.class);
 
                                 intent.putExtra("ID", elementos.get(recyclerView.getChildAdapterPosition(v)).getIdLugar());
+                                intent.putExtra("idPersona", idPersona.toString());
 
                                 startActivity(intent);
                             }

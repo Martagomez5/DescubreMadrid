@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
@@ -19,7 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DescubreMadrid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Oficinas"></activity>
+        <activity android:name=".MenuItinerarios"></activity>
+        <activity android:name=".Ruta1" />
+        <activity android:name=".QuererVisitar" />
+        <activity android:name=".Oficinas" />
         <activity
             android:name=".DetallesLugares"
             android:screenOrientation="portrait" />

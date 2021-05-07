@@ -7,10 +7,13 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.fonts.Font;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,17 +40,26 @@ import java.util.Map;
 public class DetallesLugares extends AppCompatActivity implements  Response.Listener<JSONObject>, Response.ErrorListener {
     TextView tvNombre, tvtipo, tvhorario, tvweb, tvprecio, tvdescuento, tvreserva, tvtelefono, tvubicacion, tvtransporte, tvaccesibilidad;
     ImageView tvdireccion;
-    Button btnTelefono, btnWeb;
+    Button btnTelefono, btnWeb, buttonQV;
+    CheckBox cb;
+
+    public static String respuesta;
 
     Context context;
     public static String id2;
+    public static String idPersona;
     JsonObjectRequest jsonObjectRequest;
     RequestQueue request;
+    JsonObjectRequest jsonObjectRequest2;
+    RequestQueue request2;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles_lugares);
+
 
 
         btnTelefono=findViewById(R.id.buttonTelefono);
@@ -65,6 +77,8 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
         tvubicacion = findViewById(R.id.textViewUbicacion);
         tvtransporte = findViewById(R.id.textViewTransporte);
         tvaccesibilidad = findViewById(R.id.textViewAccesibilidad);
+        cb=findViewById(R.id.checkBoxQuererVer);
+        buttonQV=findViewById(R.id.buttonGuardar);
 
 
 
@@ -72,13 +86,17 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
 
 
         id2 = intent.getStringExtra("ID");
-        //Toast.makeText(getApplicationContext(), id2.toString(), Toast.LENGTH_SHORT).show();
+        idPersona = intent.getStringExtra("idPersona");
+
+
+
         tvNombre.setText(id2.toString());
 
         request = Volley.newRequestQueue(getApplicationContext());
-
+        request2 = Volley.newRequestQueue(getApplicationContext());
 
         cargarWeb();
+
 
         btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +119,16 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
             }
         });
 
+        buttonQV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String URL="https://descubremadrid.xyz/descubreMadrid/quererVerGuardar.php";
+                guardar(URL);
+
+            }
+        });
+
     }
 
     private void cargarWeb() {
@@ -110,6 +138,7 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
         request.add(jsonObjectRequest);
 
     }
+
 
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -143,58 +172,98 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        tvNombre.setText(dLugares.getNombre());
-        tvtipo.setText("Tipo:  " + dLugares.getTipo());
-        Picasso.get().load(dLugares.getDireccion()).into(tvdireccion);
-        tvhorario.setText("Horario:  " + dLugares.getHorario());
-        tvweb.setText(dLugares.getWeb());
-        tvprecio.setText("Precio:  "+ dLugares.getPrecio());
-        tvdescuento.setText("Descuentos:  "+ dLugares.getDescuento());
-        tvreserva.setText("Reserva:  "+ dLugares.getReserva());
-        tvtelefono.setText(dLugares.getTelefono());
-        tvubicacion.setText("Ubicación:  "+ dLugares.getUbicacion());
-        tvtransporte.setText("Transporte:  "+ dLugares.getTransporte());
-        tvaccesibilidad.setText("Accesibilidad:  "+ dLugares.getAccesibilidad());
 
+        tvNombre.setText(dLugares.getNombre());
+        tvtipo.setText(Html.fromHtml("<FONT COLOR='black'><b>Tipo:  </b></FONT>" + dLugares.getTipo()));
+        Picasso.get().load(dLugares.getDireccion()).into(tvdireccion);
+        tvhorario.setText(Html.fromHtml("<FONT COLOR='black'><b>Horario:  </b></FONT>" + dLugares.getHorario()));
+        tvweb.setText(dLugares.getWeb());
+        tvprecio.setText(Html.fromHtml("<FONT COLOR='black'><b>Precio:  </b></FONT>"+ dLugares.getPrecio()));
+        tvdescuento.setText(Html.fromHtml("<FONT COLOR='black'><b>Descuento:  </b></FONT>"+ dLugares.getDescuento()));
+        tvreserva.setText(Html.fromHtml("<FONT COLOR='black'><b>Reserva:  </b></FONT>"+ dLugares.getReserva()));
+        tvtelefono.setText(dLugares.getTelefono());
+        tvubicacion.setText(Html.fromHtml("<FONT COLOR='black'><b>Ubicación:  </b></FONT>"+ dLugares.getUbicacion()));
+        tvtransporte.setText(Html.fromHtml("<FONT COLOR='black'><b>Transporte:  </b></FONT>"+ dLugares.getTransporte()));
+        tvaccesibilidad.setText(Html.fromHtml("<FONT COLOR='black'><b>Accesibilidad:  </b></FONT>"+ dLugares.getAccesibilidad()));
+        querer();
 
 
 
 
     }
 
-   /*
-    private void cargarWeb(String URL, String id){
-        jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, URL, null,this ,this);
+    public void querer(){
 
-        requestQueue.add(jsonObjectRequest);
-    }*/
+        String URL="https://descubremadrid.xyz/descubreMadrid/pp.php?idLugar="+id2.toString() + "&idPersona="+idPersona.toString();
 
-
-
-   /* private void validarId(String URL){
-        StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+        StringRequest stringRequest= new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-               
+                 respuesta=response.trim();
+                if(respuesta.equals("0")){
+                    respuesta="0";
+                    cb.setChecked(false);
+
+                }else {
+                    respuesta="1";
+                    cb.setChecked(true);
+
+                }
+
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(DetallesLugares.this, error.toString(),Toast.LENGTH_LONG).show();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> parametros=new HashMap<String, String>();
-                parametros.put("id",id2.toString());
 
+            }
+        });
+
+
+                RequestQueue requestQueue = Volley.newRequestQueue(this);
+                requestQueue.add(stringRequest);
+    }
+
+    private void guardar(String URL) {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+
+
+                        Toast.makeText(getApplicationContext(), "GUARDADO "+respuesta, Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                String t = "GUARDADO INCORRECTO";
+                Toast.makeText(getApplicationContext(), t, Toast.LENGTH_SHORT).show();
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                if(respuesta.equals("0")){
+
+                    respuesta="1";
+                }else {
+                    respuesta="0";
+                }
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("quererVisitar", respuesta);
+                parametros.put("idPersona", idPersona);
+                parametros.put("idLugar", id2);
                 return parametros;
             }
-        };
 
+        };
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-    }*/
+    }
+
 
 
 }
