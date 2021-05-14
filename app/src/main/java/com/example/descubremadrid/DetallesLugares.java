@@ -38,10 +38,12 @@ import java.util.HashSet;
 import java.util.Map;
 
 public class DetallesLugares extends AppCompatActivity implements  Response.Listener<JSONObject>, Response.ErrorListener {
-    TextView tvNombre, tvtipo, tvhorario, tvweb, tvprecio, tvdescuento, tvreserva, tvtelefono, tvubicacion, tvtransporte, tvaccesibilidad;
+    TextView tvNombre, tvtipo, tvhorario, tvweb, tvprecio, tvdescuento, tvreserva, tvtelefono, tvubicacion, tvtransporte, tvaccesibilidad, tvtiempoVisita;
     ImageView tvdireccion;
     Button btnTelefono, btnWeb, buttonQV;
     CheckBox cb;
+    int tiempoEnHoras;
+
 
     public static String respuesta;
 
@@ -51,7 +53,10 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
     JsonObjectRequest jsonObjectRequest;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest2;
-    RequestQueue request2;
+    RequestQueue request2;@Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
 
 
 
@@ -77,6 +82,7 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
         tvubicacion = findViewById(R.id.textViewUbicacion);
         tvtransporte = findViewById(R.id.textViewTransporte);
         tvaccesibilidad = findViewById(R.id.textViewAccesibilidad);
+        tvtiempoVisita = findViewById(R.id.textViewTiempoVisita);
         cb=findViewById(R.id.checkBoxQuererVer);
         buttonQV=findViewById(R.id.buttonGuardar);
 
@@ -167,6 +173,7 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
             dLugares.setUbicacion(jsonObject.optString("ubicacion"));
             dLugares.setTransporte(jsonObject.optString("transporte"));
             dLugares.setAccesibilidad(jsonObject.optString("accesibilidad"));
+            dLugares.setTiempoVisita(jsonObject.optString("tiempoVisita"));
 
 
         } catch (JSONException e) {
@@ -185,6 +192,7 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
         tvubicacion.setText(Html.fromHtml("<FONT COLOR='black'><b>Ubicación:  </b></FONT>"+ dLugares.getUbicacion()));
         tvtransporte.setText(Html.fromHtml("<FONT COLOR='black'><b>Transporte:  </b></FONT>"+ dLugares.getTransporte()));
         tvaccesibilidad.setText(Html.fromHtml("<FONT COLOR='black'><b>Accesibilidad:  </b></FONT>"+ dLugares.getAccesibilidad()));
+        tvtiempoVisita.setText(Html.fromHtml("<FONT COLOR='black'><b>Tiempo duración visita:  </b></FONT>"+ dLugares.getTiempoVisita()));
         querer();
 
 

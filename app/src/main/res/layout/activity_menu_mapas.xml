@@ -13,13 +13,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/btnMetro"
                 android:layout_width="match_parent"
-                android:layout_height="226dp"
+                android:layout_height="200dp"
                 android:background="@color/white"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/metromadridlogo" />
@@ -36,7 +38,7 @@
             <ImageButton
                 android:id="@+id/btnCercanias"
                 android:layout_width="match_parent"
-                android:layout_height="223dp"
+                android:layout_height="200dp"
                 android:background="@color/white"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/logocercanias" />
@@ -53,7 +55,7 @@
             <ImageButton
                 android:id="@+id/btnTurismo"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
+                android:layout_height="200dp"
                 android:background="@color/white"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/logoturismo" />

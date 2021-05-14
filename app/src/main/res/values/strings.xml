@@ -18,12 +18,16 @@
     <string name="title_activity_oficinas_turismo">OficinasTurismo</string>
 
 
-    <string name="token">sk.eyJ1Ijoic2VyZ2lvcmF5bzMxIiwiYSI6ImNrbzJpYW5qOTBoN3UydnMydDk1ZG1kcWoifQ.tKhto-OBfTTTWhq39wEqAQ</string>
+    <string name="token">pk.eyJ1Ijoic2VyZ2lvcmF5bzMxIiwiYSI6ImNrb2N2eTU2cTFxZzYyeXFrNTgzbWdmMWIifQ.4n65GPZ-frVN9rDR73y66A</string>
     <string name="user_location_permission_explanation">This app needs location permissions in order to show its functionality.</string>
     <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
     <string name="successful_but_no_routes">No routes found for that location</string>
     <string name="no_success">No routes found, make sure you set the right user and access token</string>
     <string name="click_instructions">Tap on the map to select a maximum of 12 locations</string>
     <string name="null_in_response">%1$s is null.</string>
+    <string name="directions_activity_toast_message">Route is %1$f meters long.</string>
+    <string name="clicked_symbol_toast">Symbol clicked</string>
+    <string name="symbol_listener_instruction_toast">Tap, tap and hold, or tap and drag the icon</string>
+
 
 </resources>

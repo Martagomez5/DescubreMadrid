@@ -29,4 +29,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.mapbox.mapboxsdk.maps.MapView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

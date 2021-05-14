@@ -80,7 +80,7 @@ public class menuprincipal extends AppCompatActivity implements Response.ErrorLi
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), Ruta1.class);
+                Intent intent = new Intent(getApplicationContext(), MenuItinerarios.class);
                 startActivity(intent);
 
             }

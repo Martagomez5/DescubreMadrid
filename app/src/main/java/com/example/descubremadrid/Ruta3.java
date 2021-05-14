@@ -62,7 +62,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Ruta1 extends AppCompatActivity implements OnMapReadyCallback,
+public class Ruta3 extends AppCompatActivity implements OnMapReadyCallback,
         Callback<DirectionsResponse>, PermissionsListener {
 
     private MapView mapView;
@@ -107,7 +107,7 @@ public class Ruta1 extends AppCompatActivity implements OnMapReadyCallback,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.token));
-        setContentView(R.layout.activity_ruta1);
+        setContentView(R.layout.activity_ruta3);
         mapView = findViewById(R.id.mapView);
         boton = findViewById(R.id.button);
         mapView.onCreate(savedInstanceState);
@@ -132,22 +132,19 @@ public class Ruta1 extends AppCompatActivity implements OnMapReadyCallback,
             @Override
             public void onStyleLoaded(@NonNull Style style) {
                 enableLocationComponent(style);
-                origen = Point.fromLngLat(-3.7032947682884783,40.41691942755559);
+                origen = Point.fromLngLat(-3.69464273068646, 40.40879459580605);
 
-                destino = Point.fromLngLat(-3.684199204685015,40.417776095668124);
-                intermedio = Point.fromLngLat(-3.7074062666395577,40.41568251841813);
-                intermedio2 = Point.fromLngLat(-3.7106006543700603,40.4182818204111);
-                intermedio3 = Point.fromLngLat(-3.714253306425316,40.41808572727405);
-                intermedio4 = Point.fromLngLat(-3.7145207095286668,40.4156694687128);
-                intermedio5 =Point.fromLngLat(-3.7178113013308853,40.424154073009525);
-                intermedio6= Point.fromLngLat(-3.696854543788808,40.4189368266226);
-                intermedio7= Point.fromLngLat( -3.6930954020452917,40.4193377662484);
-                intermedio8= Point.fromLngLat( -3.6887074454332662,40.41994216748231);
+                destino = Point.fromLngLat(-3.704051957920033, 40.427172106866145);
+                intermedio = Point.fromLngLat(-3.7149460315035343, 40.39983122928655);
+                intermedio2 = Point.fromLngLat( -3.6977975693135394, 40.39256632330503);
+                intermedio3 = Point.fromLngLat( -3.6910837846567697, 40.411890626288674);
+                intermedio4 = Point.fromLngLat(-3.6977741306864598, 40.423027351076406);
+                intermedio5 =Point.fromLngLat(-3.6632052693135404, 40.432886815473495);
 
 
                 locationComponent = mapbox.getLocationComponent();
                 locationComponent.activateLocationComponent(
-                        LocationComponentActivationOptions.builder(Ruta1.this, style).build());
+                        LocationComponentActivationOptions.builder(Ruta3.this, style).build());
 
 
 
@@ -170,7 +167,7 @@ public class Ruta1 extends AppCompatActivity implements OnMapReadyCallback,
 
 
 
-                        Toast.makeText(Ruta1.this, String.format("User clicked at: %s", point.toString()), Toast.LENGTH_LONG).show();
+                        Toast.makeText(Ruta3.this, String.format("User clicked at: %s", point.toString()), Toast.LENGTH_LONG).show();
 
 
 
@@ -321,10 +318,10 @@ public class Ruta1 extends AppCompatActivity implements OnMapReadyCallback,
                     @Override
                     public void onResponse(Call<DirectionsResponse> call, Response<DirectionsResponse> response) {
                         if (response.body() == null) {
-                            Toast.makeText(Ruta1.this, "error", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Ruta3.this, "error", Toast.LENGTH_LONG).show();
                             return;
                         } else if (response.body().routes().size() < 1) {
-                            Toast.makeText(Ruta1.this, "error 2", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Ruta3.this, "error 2", Toast.LENGTH_LONG).show();
 
                         }
                         DirectionsRoute route = response.body().routes().get(0);
@@ -336,7 +333,7 @@ public class Ruta1 extends AppCompatActivity implements OnMapReadyCallback,
                                 .shouldSimulateRoute(true)
                                 .build();
 
-                        NavigationLauncher.startNavigation(Ruta1
+                        NavigationLauncher.startNavigation(Ruta3
                                 .this, options);
 
 
@@ -408,7 +405,7 @@ public class Ruta1 extends AppCompatActivity implements OnMapReadyCallback,
 
 // Activate with options
                             locationComponent.activateLocationComponent(
-                                    LocationComponentActivationOptions.builder(Ruta1.this, loadedMapStyle).build());
+                                    LocationComponentActivationOptions.builder(Ruta3.this, loadedMapStyle).build());
 
 // Enable to make component visible
                             locationComponent.setLocationComponentEnabled(true);

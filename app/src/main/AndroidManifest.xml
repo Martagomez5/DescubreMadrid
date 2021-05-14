@@ -20,7 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DescubreMadrid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MenuItinerarios"></activity>
+        <activity android:name=".infoItinerario1"></activity>
+        <activity android:name=".Ruta3" />
+        <activity android:name=".Ruta2" />
+        <activity android:name=".MenuItinerarios" />
         <activity android:name=".Ruta1" />
         <activity android:name=".QuererVisitar" />
         <activity android:name=".Oficinas" />
