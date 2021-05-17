@@ -24,7 +24,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Información"
-                android:textColor="#5161BC"
+                android:textColor="@color/teal_700"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -62,7 +62,7 @@
                 android:gravity="center"
                 android:linksClickable="true"
                 android:text="- Página web City Tour WorldWide "
-                android:textColor="#00BCD4"
+                android:textColor="@color/teal_700"
                 android:textSize="20sp" />
 
 
@@ -74,7 +74,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Rutas"
-                android:textColor="#5161BC"
+                android:textColor="@color/teal_700"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -103,7 +103,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:text="HORARIOS"
-                android:textColor="#5161BC"
+                android:textColor="@color/teal_700"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -150,7 +150,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:text="PRECIOS ONLINE"
-                android:textColor="#5161BC"
+                android:textColor="@color/teal_700"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 

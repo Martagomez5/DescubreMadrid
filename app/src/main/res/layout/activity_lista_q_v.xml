@@ -2,13 +2,13 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:screenOrientation="portrait"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,43 +23,16 @@
             android:padding="6dp">
 
 
-            <ImageView
-                android:id="@+id/imagenCV"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp"
-                android:layout_alignParentLeft="true"
-
-                />
-
             <LinearLayout
-                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="2dp"
-                android:orientation="vertical"
-                android:layout_marginLeft="4dp"
-                android:layout_toEndOf="@+id/imagenCV"
-                android:layout_toRightOf="@+id/imagenCV"
-                >
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-
-                <TextView
-                    android:id="@+id/NombreCV"
+                <CheckBox
+                    android:id="@+id/checkBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:text="Museo Nacional del Prado"
-                    android:textColor="@color/black"
-                    android:textSize="24dp"
-                    android:textStyle="bold"
-                    />
+                    android:text="CheckBox" />
 
                 <TextView
                     android:id="@+id/TipoCV"
@@ -67,25 +40,44 @@
                     android:layout_height="wrap_content"
                     android:text="Tipos"
                     android:textSize="20dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/precioVisita"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/tiempoVisita"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
 
                 <TextView
                     android:id="@+id/IdLugarCV"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_toEndOf="@+id/TipoCV"
+                    android:layout_toRightOf="@+id/TipoCV"
                     android:text="Id"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:visibility="invisible"
-                    android:layout_toEndOf="@+id/TipoCV"
-                    android:layout_toRightOf="@+id/TipoCV"/>
+                    android:visibility="invisible" />
 
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="TextView" />
 
-
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="TextView" />
 
             </LinearLayout>
-
-
 
 
         </RelativeLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -217,10 +218,7 @@ public class Ruta3 extends AppCompatActivity implements OnMapReadyCallback,
                         Feature.fromGeometry(Point.fromLngLat(intermedio2.longitude(), intermedio2.latitude())),
                         Feature.fromGeometry(Point.fromLngLat(intermedio3.longitude(), intermedio3.latitude())),
                         Feature.fromGeometry(Point.fromLngLat(intermedio4.longitude(), intermedio4.latitude())),
-                        Feature.fromGeometry(Point.fromLngLat(intermedio5.longitude(), intermedio5.latitude())),
-                        Feature.fromGeometry(Point.fromLngLat(intermedio6.longitude(), intermedio6.latitude())),
-                        Feature.fromGeometry(Point.fromLngLat(intermedio7.longitude(), intermedio7.latitude())),
-                        Feature.fromGeometry(Point.fromLngLat(intermedio8.longitude(), intermedio8.latitude()))
+                        Feature.fromGeometry(Point.fromLngLat(intermedio5.longitude(), intermedio5.latitude()))
 
                 }));
         style.addSource(icGeoJsonSource);
@@ -271,9 +269,6 @@ public class Ruta3 extends AppCompatActivity implements OnMapReadyCallback,
                 .addWaypoint(intermedio3)
                 .addWaypoint(intermedio4)
                 .addWaypoint(intermedio5)
-                .addWaypoint(intermedio6)
-                .addWaypoint(intermedio7)
-                .addWaypoint(intermedio8)
                 .destination(destino)
                 .overview(DirectionsCriteria.OVERVIEW_FULL)
                 .profile(DirectionsCriteria.PROFILE_WALKING)
@@ -306,9 +301,6 @@ public class Ruta3 extends AppCompatActivity implements OnMapReadyCallback,
                 .addWaypoint(intermedio3)
                 .addWaypoint(intermedio4)
                 .addWaypoint(intermedio5)
-                .addWaypoint(intermedio6)
-                .addWaypoint(intermedio7)
-                .addWaypoint(intermedio8)
                 .destination(destino)
                 .profile(DirectionsCriteria.PROFILE_WALKING)
                 .build()
@@ -379,6 +371,10 @@ public class Ruta3 extends AppCompatActivity implements OnMapReadyCallback,
             finish();
         }
     }
+    public static boolean isGPSProvider(Context context) {
+        LocationManager lm = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+        return lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+    }
 
     @SuppressLint("WrongConstant")
     @SuppressWarnings({"MissingPermission"})
@@ -386,57 +382,75 @@ public class Ruta3 extends AppCompatActivity implements OnMapReadyCallback,
 // Check if permissions are enabled and if not request
 
 
+if(isGPSProvider(getApplicationContext())==false) {
+
+    if (PermissionsManager.areLocationPermissionsGranted(this)) {
 
 
-        if (PermissionsManager.areLocationPermissionsGranted(this)) {
-
-
-
-
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("El gps esta desctivarlo lo desa activar?")
-                    .setCancelable(false)
-                    .setPositiveButton("SI", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(@SuppressWarnings("unused") final DialogInterface dialogInterface, @SuppressWarnings("unused") final int i) {
-                            startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-                            locationComponent = mapbox.getLocationComponent();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("El gps esta desctivarlo lo desa activar?")
+                .setCancelable(false)
+                .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(@SuppressWarnings("unused") final DialogInterface dialogInterface, @SuppressWarnings("unused") final int i) {
+                        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                        locationComponent = mapbox.getLocationComponent();
 
 
 // Activate with options
-                            locationComponent.activateLocationComponent(
-                                    LocationComponentActivationOptions.builder(Ruta3.this, loadedMapStyle).build());
+                        locationComponent.activateLocationComponent(
+                                LocationComponentActivationOptions.builder(Ruta3.this, loadedMapStyle).build());
 
 // Enable to make component visible
-                            locationComponent.setLocationComponentEnabled(true);
+                        locationComponent.setLocationComponentEnabled(true);
 
 
 // Set the component's camera mode;
-                            locationComponent.setCameraMode(CameraMode.TRACKING);
+                        locationComponent.setCameraMode(CameraMode.TRACKING);
 
 
-                            locationComponent.setRenderMode(RenderMode.COMPASS);
+                        locationComponent.setRenderMode(RenderMode.COMPASS);
 
-                            boton.setEnabled(true);
-
-
-                        }
-                    })
-                    .setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, @SuppressWarnings("unused") final int i) {
-                            dialogInterface.cancel();
-                            boton.setEnabled(false);
-                        }
-                    });
-            alert = builder.create();
-            alert.show();
+                        boton.setEnabled(true);
 
 
-        } else {
-            permissionsManager = new PermissionsManager(this);
-            permissionsManager.requestLocationPermissions(this);
-        }
+                    }
+                })
+                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, @SuppressWarnings("unused") final int i) {
+                        dialogInterface.cancel();
+                        boton.setEnabled(false);
+                    }
+                });
+        alert = builder.create();
+        alert.show();
+
+
+    } else {
+        permissionsManager = new PermissionsManager(this);
+        permissionsManager.requestLocationPermissions(this);
+    }
+}else{
+
+    locationComponent = mapbox.getLocationComponent();
+
+
+// Activate with options
+    locationComponent.activateLocationComponent(
+            LocationComponentActivationOptions.builder(Ruta3.this, loadedMapStyle).build());
+
+// Enable to make component visible
+    locationComponent.setLocationComponentEnabled(true);
+
+
+// Set the component's camera mode;
+    locationComponent.setCameraMode(CameraMode.TRACKING);
+
+
+    locationComponent.setRenderMode(RenderMode.COMPASS);
+    boton.setEnabled(true);
+}
     }
 
 

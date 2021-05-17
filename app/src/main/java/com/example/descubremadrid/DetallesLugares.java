@@ -53,10 +53,8 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
     JsonObjectRequest jsonObjectRequest;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest2;
-    RequestQueue request2;@Override
-    public void onErrorResponse(VolleyError error) {
+    RequestQueue request2;
 
-    }
 
 
 
@@ -130,10 +128,16 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
             public void onClick(View v) {
 
                 String URL="https://descubremadrid.xyz/descubreMadrid/quererVerGuardar.php";
+                if(cb.isChecked()==true){
+                    respuesta="1";
+                }else{
+                    respuesta="0";
+                }
                 guardar(URL);
 
             }
         });
+
 
     }
 
@@ -146,8 +150,10 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
     }
 
 
+
+
     @Override
-    public void onErrorResponse(VolleyError error) {
+   public void onErrorResponse(VolleyError error) {
         Toast.makeText(getApplicationContext(), "No se pudo conectar"+error.toString(), Toast.LENGTH_SHORT).show();
     }
 
@@ -193,6 +199,33 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
         tvtransporte.setText(Html.fromHtml("<FONT COLOR='black'><b>Transporte:  </b></FONT>"+ dLugares.getTransporte()));
         tvaccesibilidad.setText(Html.fromHtml("<FONT COLOR='black'><b>Accesibilidad:  </b></FONT>"+ dLugares.getAccesibilidad()));
         tvtiempoVisita.setText(Html.fromHtml("<FONT COLOR='black'><b>Tiempo duración visita:  </b></FONT>"+ dLugares.getTiempoVisita()));
+
+         if(dLugares.getDescuento().equals("null")){
+             tvdescuento.setHeight(0);
+         }
+        if(dLugares.getTelefono().equals("null")){
+
+            Toast.makeText(getApplicationContext(),"No dispone de telefono de contacto",Toast.LENGTH_SHORT).show();
+            tvtelefono.setHeight(0);
+            btnTelefono.setEnabled(false);
+        }
+
+        if(dLugares.getReserva().equals("null")){
+            tvreserva.setHeight(0);
+        }
+
+        if(dLugares.getWeb().equals("null")){
+            tvweb.setHeight(0);
+        }
+        if(dLugares.getAccesibilidad().equals("null")){
+            tvaccesibilidad.setHeight(0);
+        }
+
+        if(dLugares.getTransporte().equals("null")){
+            tvtransporte.setHeight(0);
+        }
+
+
         querer();
 
 
@@ -212,9 +245,13 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
                     respuesta="0";
                     cb.setChecked(false);
 
-                }else {
+                }else if(respuesta.equals("1")){
                     respuesta="1";
                     cb.setChecked(true);
+
+                }else{
+                    respuesta="0";
+                    cb.setChecked(false);
 
                 }
 
@@ -256,9 +293,9 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
             protected Map<String, String> getParams() {
                 if(respuesta.equals("0")){
 
-                    respuesta="1";
-                }else {
                     respuesta="0";
+                }else {
+                    respuesta="1";
                 }
                 Map<String, String> parametros = new HashMap<String, String>();
                 parametros.put("quererVisitar", respuesta);
@@ -272,6 +309,10 @@ public class DetallesLugares extends AppCompatActivity implements  Response.List
         requestQueue.add(stringRequest);
     }
 
-
+public void visibilidad(){
+    if(tvdescuento.getText().equals("null")){
+        tvdescuento.setVisibility(View.INVISIBLE);
+    }
+}
 
 }

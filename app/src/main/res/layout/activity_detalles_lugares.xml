@@ -171,7 +171,8 @@
                                 android:id="@+id/checkBoxQuererVer"
                                 android:layout_width="199dp"
                                 android:layout_height="wrap_content"
-                                android:text="Querer ver" />
+                                android:text="Querer ver"
+                                android:checked="false"/>
 
                             <Button
                                 android:id="@+id/buttonGuardar"

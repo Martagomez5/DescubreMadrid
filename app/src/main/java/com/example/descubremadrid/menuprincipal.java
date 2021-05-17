@@ -125,7 +125,8 @@ public class menuprincipal extends AppCompatActivity implements Response.ErrorLi
         btnLugaresQuererVer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), QuererVisitar.class);
+                Intent intent = new Intent(getApplicationContext(), QV.class);
+
                 intent.putExtra("idPersona", id.getText().toString());
                 startActivity(intent);
 

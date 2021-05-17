@@ -18,10 +18,13 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -34,63 +37,62 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class Lugar extends AppCompatActivity implements SearchView.OnQueryTextListener{
-    private static String URL="https://descubremadrid.xyz/descubreMadrid/datoslugares.php";
-    RecyclerView recyclerView;
-    ArrayList<ListaElementos> elementos;
+public class QV extends AppCompatActivity {
 
+    RecyclerView recyclerViewqv;
+    ArrayList<listaQV> elementosqv;
+    adaptadorQV adaptadorQV;
 
     String idPersona;
 
-    ListaAdaptador listaAdaptador;
 
-    SearchView searchView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycle_view_card_view);
+        setContentView(R.layout.activity_card_q_v);
 
         Intent intent = getIntent();
         idPersona = intent.getStringExtra("idPersona");
 
-
-
-        initViews();
         init();
         initListener();
 
         cargarLugares();
 
-
-
-
     }
 
-    private void initViews(){
-        searchView = findViewById(R.id.svSearch);
-    }
+
 
     private void init() {
 
-        elementos = new ArrayList<>();
+        elementosqv = new ArrayList<>();
+        //elementos.add(new ListElement("Bernabeu", "Estadio"));
+        // elements.add(new ListElement("#607d8b","Wanda", "Estadio", "Estadio Atletico del Madrid"));
 
+        adaptadorQV listaAdaptador =new adaptadorQV(elementosqv,QV.this);
 
-        ListaAdaptador listAdapter= new ListaAdaptador(elementos,Lugar.this);
-        recyclerView = findViewById(R.id.listRecyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(listaAdaptador);
+        //ListaAdaptador listaAdaptador= new ListaAdaptador(elementos,this);
+        recyclerViewqv = findViewById(R.id.listRecyclerViewQV);
+        recyclerViewqv.setHasFixedSize(true);
+        recyclerViewqv.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewqv.setAdapter(listaAdaptador);
+
 
 
     }
 
     private void cargarLugares(){
 
-        elementos = new ArrayList<>();
+        String URL="https://descubremadrid.xyz/descubreMadrid/coordenadasLugar.php?idPersona="+ idPersona;
+
+        elementosqv = new ArrayList<>();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -100,30 +102,28 @@ public class Lugar extends AppCompatActivity implements SearchView.OnQueryTextLi
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject lugares = array.getJSONObject(i);
 
-                        elementos.add(new ListaElementos(
+                        elementosqv.add(new listaQV(
                                 lugares.getString("id"),
                                 lugares.getString("nombre"),
                                 lugares.getString("tipo"),
-                                lugares.getString("direccion")
+                                lugares.getString("precioAdulto"),
+                                lugares.getString("tiempoVisita"),
+                                lugares.getDouble("latitud"),
+                                lugares.getDouble("longitud")
 
                         ));
-                        listaAdaptador = new ListaAdaptador(elementos,Lugar.this);
-                        recyclerView = findViewById(R.id.listRecyclerView);
-                        recyclerView.setAdapter(listaAdaptador);
+                        adaptadorQV = new adaptadorQV(elementosqv,QV.this);
+                        recyclerViewqv = findViewById(R.id.listRecyclerViewQV);
+                        recyclerViewqv.setAdapter(adaptadorQV);
 
-                        listaAdaptador.setOnClickListener(new View.OnClickListener() {
+
+
+                        adaptadorQV.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(getApplicationContext(),
-                                        "Seleccionado: "+elementos.get(recyclerView.getChildAdapterPosition(v)).getNombre(),
-                                        Toast.LENGTH_SHORT).show();
 
-                                Intent intent= new Intent(getApplicationContext(),DetallesLugares.class);
 
-                                intent.putExtra("ID", elementos.get(recyclerView.getChildAdapterPosition(v)).getIdLugar());
-                                intent.putExtra("idPersona", idPersona.toString());
 
-                                startActivity(intent);
                             }
                         });
 
@@ -137,28 +137,15 @@ public class Lugar extends AppCompatActivity implements SearchView.OnQueryTextLi
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Lugar.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(QV.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
     private void initListener(){
-        searchView.setOnQueryTextListener(this);
+
     }
-
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        listaAdaptador.filter(newText);
-
-        return false;
-    }
-
 
 
 }

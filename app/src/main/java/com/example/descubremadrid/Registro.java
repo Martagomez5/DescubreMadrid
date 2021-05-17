@@ -109,6 +109,7 @@ public class Registro extends AppCompatActivity {
                         if(response.equals("Ya existe este correo")){
                             Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
                         }else{
+                            Toast.makeText(getApplicationContext(), "Registro Correcto", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), Login.class);
                             startActivity(intent);
                         }

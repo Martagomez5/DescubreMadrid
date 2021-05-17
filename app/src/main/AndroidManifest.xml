@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.descubremadrid">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,21 +21,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DescubreMadrid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".infoItinerario1"></activity>
+
+        <activity android:name=".infoItinerario1" />
         <activity android:name=".Ruta3" />
         <activity android:name=".Ruta2" />
         <activity android:name=".MenuItinerarios" />
         <activity android:name=".Ruta1" />
-        <activity android:name=".QuererVisitar" />
         <activity android:name=".Oficinas" />
+        <activity android:name=".CardQV" />
+        <activity android:name=".QV"/>
+
         <activity
             android:name=".DetallesLugares"
             android:screenOrientation="portrait" />
         <activity
             android:name=".RecycleViewCardView"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".OficinasTurismo"
             android:screenOrientation="portrait" />
         <activity
             android:name=".TarjetaTransporte"
@@ -71,7 +72,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Login"
-            android:label="@string/title_activity_login"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"

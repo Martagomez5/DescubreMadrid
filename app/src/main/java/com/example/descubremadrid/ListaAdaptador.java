@@ -9,9 +9,13 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +29,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
+
 public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHolder>
         implements View.OnClickListener{
 
@@ -33,9 +39,15 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
 
 
     private List<ListaElementos> mData;
+
     private LayoutInflater mInflater;
     private Context context;
+
+
     ListaElementos listElement;
+    Spinner spinner;
+
+
 
     private List<ListaElementos> elementosOriginales;
 
@@ -46,6 +58,10 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
         this.elementosOriginales = new ArrayList<>();
         elementosOriginales.addAll(mData);
 
+
+
+
+
     }
 
     @NonNull
@@ -54,6 +70,8 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
 
         View view = mInflater.inflate(R.layout.activity_lista_elementos, null);
         view.setOnClickListener(this);
+
+
         return new ListaAdaptador.ViewHolder(view);
     }
 
@@ -88,21 +106,32 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 
                 List<ListaElementos> collect = mData.stream()
-                        .filter(i -> i.getNombre().toLowerCase().contains(strSearch))
+                        .filter(i -> i.getNombre().toUpperCase().contains(strSearch))
+                        .collect(Collectors.toList());
+
+                List<ListaElementos> collect2 = mData.stream()
+                        .filter(i -> i.getTipo().toUpperCase().contains(strSearch))
                         .collect(Collectors.toList());
 
 
                 mData.clear();
                 mData.addAll(collect);
+
+                mData.addAll(collect2);
+
             }
+
+
+
             else {
                 mData.clear();
                 for(ListaElementos i : elementosOriginales){
-                    if (i.getNombre().toLowerCase().contains(strSearch)){
+                    if (i.getNombre().toUpperCase().contains(strSearch)){
                         mData.add(i);
                     }
                 }
             }
+
         }
 
         notifyDataSetChanged();
@@ -117,6 +146,10 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
             listener.onClick(v);
         }
     }
+
+
+
+
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;

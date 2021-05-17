@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -383,6 +384,11 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
         }
     }
 
+
+    public static boolean isGPSProvider(Context context) {
+        LocationManager lm = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+        return lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+    }
     @SuppressLint("WrongConstant")
     @SuppressWarnings({"MissingPermission"})
     private void enableLocationComponent(@NonNull Style loadedMapStyle) {
@@ -390,57 +396,75 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
 
 
 
-
-        if (PermissionsManager.areLocationPermissionsGranted(this)) {
-
-
+        if(isGPSProvider(getApplicationContext())==false) {
+            if (PermissionsManager.areLocationPermissionsGranted(this)) {
 
 
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("El gps esta desctivarlo lo desa activar?")
-                    .setCancelable(false)
-                    .setPositiveButton("SI", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(@SuppressWarnings("unused") final DialogInterface dialogInterface, @SuppressWarnings("unused") final int i) {
-                            startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-                            locationComponent = mapbox.getLocationComponent();
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("¿El gps esta desactivado lo desea activar?")
+                        .setCancelable(false)
+                        .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(@SuppressWarnings("unused") final DialogInterface dialogInterface, @SuppressWarnings("unused") final int i) {
+                                startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                                locationComponent = mapbox.getLocationComponent();
 
 
 // Activate with options
-                            locationComponent.activateLocationComponent(
-                                    LocationComponentActivationOptions.builder(Ruta2.this, loadedMapStyle).build());
+                                locationComponent.activateLocationComponent(
+                                        LocationComponentActivationOptions.builder(Ruta2.this, loadedMapStyle).build());
 
 // Enable to make component visible
-                            locationComponent.setLocationComponentEnabled(true);
+                                locationComponent.setLocationComponentEnabled(true);
 
 
 // Set the component's camera mode;
-                            locationComponent.setCameraMode(CameraMode.TRACKING);
+                                locationComponent.setCameraMode(CameraMode.TRACKING);
 
 
-                            locationComponent.setRenderMode(RenderMode.COMPASS);
+                                locationComponent.setRenderMode(RenderMode.COMPASS);
 
-                            boton.setEnabled(true);
-
-
-                        }
-                    })
-                    .setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, @SuppressWarnings("unused") final int i) {
-                            dialogInterface.cancel();
-                            boton.setEnabled(false);
-                        }
-                    });
-            alert = builder.create();
-            alert.show();
+                                boton.setEnabled(true);
 
 
-        } else {
-            permissionsManager = new PermissionsManager(this);
-            permissionsManager.requestLocationPermissions(this);
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, @SuppressWarnings("unused") final int i) {
+                                dialogInterface.cancel();
+                                boton.setEnabled(false);
+                            }
+                        });
+                alert = builder.create();
+                alert.show();
+
+
+            } else {
+                permissionsManager = new PermissionsManager(this);
+                permissionsManager.requestLocationPermissions(this);
+            }
+        }else{
+            locationComponent = mapbox.getLocationComponent();
+
+
+// Activate with options
+            locationComponent.activateLocationComponent(
+                    LocationComponentActivationOptions.builder(Ruta2.this, loadedMapStyle).build());
+
+// Enable to make component visible
+            locationComponent.setLocationComponentEnabled(true);
+
+
+// Set the component's camera mode;
+            locationComponent.setCameraMode(CameraMode.TRACKING);
+
+
+            locationComponent.setRenderMode(RenderMode.COMPASS);
+            boton.setEnabled(true);
         }
     }
+
 
 
     @Override

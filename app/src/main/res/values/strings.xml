@@ -29,5 +29,15 @@
     <string name="clicked_symbol_toast">Symbol clicked</string>
     <string name="symbol_listener_instruction_toast">Tap, tap and hold, or tap and drag the icon</string>
 
+    <string-array name="lenguajes">
+        <item>MUSEO</item>
+        <item>OCIO</item>
+        <item>ESTADIO</item>
+        <item>MONUMENTO</item>
+        <item>CALLE/PLAZA</item>
+        <item>ZONASVERDES</item>
+        <item>EDIFICIO</item>
+    </string-array>
+
 
 </resources>
