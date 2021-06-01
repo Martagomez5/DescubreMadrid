@@ -3,7 +3,8 @@ package com.example.descubremadrid;
 import android.net.Uri;
 
 public class dLugares {
-    String nombre, tipo, horario, web, precio, descuento, reserva, telefono, ubicacion, transporte, accesibilidad, direccion, tiempoVisita;
+    String nombre, tipo, horario, web, precio, descuento, reserva, telefono, ubicacion, transporte, accesibilidad, direccion;
+    double tiempoVisita;
 
     public String getNombre() {
         return nombre;
@@ -101,11 +102,11 @@ public class dLugares {
         this.direccion = direccion;
     }
 
-    public String getTiempoVisita() {
+    public double getTiempoVisita() {
         return tiempoVisita;
     }
 
-    public void setTiempoVisita(String tiempoVisita) {
+    public void setTiempoVisita(double tiempoVisita) {
         this.tiempoVisita = tiempoVisita;
     }
 }

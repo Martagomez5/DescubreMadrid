@@ -22,45 +22,42 @@ public class MenuItinerarios extends AppCompatActivity {
         boton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),Ruta1.class);
-                startActivity(intent);
+                Intent intent1=new Intent(getApplicationContext(),infoItinerario1.class);
+                startActivity(intent1);
             }
         });
 
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),Ruta2.class);
-                startActivity(intent);
+                Intent intent2=new Intent(getApplicationContext(),Menu2Dias.class);
+                startActivity(intent2);
             }
         });
 
         boton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),Ruta3.class);
-                startActivity(intent);
-            }
-        });
-        boton4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+                Intent intent3=new Intent(getApplicationContext(),Menu3Dias.class);
+                startActivity(intent3);
             }
         });
 
         boton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent4=new Intent(getApplicationContext(),Menu5Dias.class);
+                startActivity(intent4);
             }
         });
 
         boton5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent5=new Intent(getApplicationContext(),Menu7Dias.class);
+                startActivity(intent5);
             }
         });
+
     }
 }

@@ -36,6 +36,7 @@ public class Oficinas extends AppCompatActivity {
 
 
 
+
         btnTelefono.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +50,7 @@ public class Oficinas extends AppCompatActivity {
                         call(telefono);
                     }else{
                         if (ActivityCompat.shouldShowRequestPermissionRationale(Oficinas.this, Manifest.permission.CALL_PHONE)){
+                            btnTelefono.setEnabled(false);
                             Log.i("TAG", "Usuario ha rechazado el permiso");
 
                         }else {
@@ -70,24 +72,29 @@ public class Oficinas extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
         if (requestCode == REQUEST_PERMISSION_CALL){
+            if(permissions.length >0 && grantResults[0] == PackageManager.PERMISSION_DENIED){
+                btnTelefono.setEnabled(false);
+            }
             if (permissions.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Log.i("TAG", "Permiso permitido");
+                btnTelefono.setEnabled(true);
                 call(telefono);
             }else {
                 Log.i("TAG", "Permiso denegado" );
                 if (ActivityCompat.shouldShowRequestPermissionRationale(Oficinas.this, Manifest.permission.CALL_PHONE)){
-                    new AlertDialog.Builder(this).setMessage("NEcesitas aceptar el permiso para poder llamar")
+                    new AlertDialog.Builder(this).setMessage("Necesitas aceptar el permiso para poder llamar")
                             .setPositiveButton("Intentalo de Nuevo", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     ActivityCompat.requestPermissions(Oficinas.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PERMISSION_CALL);
-
                                 }
                             })
                             .setNegativeButton("No Gracias", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    btnTelefono.setEnabled(false);
                                     Log.i("TAG", "Dejado" );
                                 }
                             }).show();

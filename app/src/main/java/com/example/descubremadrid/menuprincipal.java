@@ -119,6 +119,10 @@ public class menuprincipal extends AppCompatActivity implements Response.ErrorLi
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(getApplicationContext(), Visto.class);
+                intent.putExtra("idPersona", id.getText().toString());
+                startActivity(intent);
+
             }
         });
 

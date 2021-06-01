@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="false"
     tools:context=".MenuItinerarios">
 
     <ScrollView
@@ -25,6 +26,7 @@
                     android:adjustViewBounds="true"
                     android:cropToPadding="false"
                     android:scaleType="fitStart"
+                    android:visibility="visible"
                     app:srcCompat="@drawable/madrid_en_1_d_a" />
 
             </TableRow>
@@ -57,7 +59,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <ImageButton
                     android:id="@+id/imageButton4"
@@ -70,7 +72,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <ImageButton
                     android:id="@+id/imageButton6"

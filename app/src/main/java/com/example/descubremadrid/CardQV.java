@@ -21,10 +21,10 @@ public class CardQV extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_q_v);
 
-        init();
+        iniciar();
     }
 
-    private void init() {
+    private void iniciar() {
 
         elementosqv = new ArrayList<>();
 

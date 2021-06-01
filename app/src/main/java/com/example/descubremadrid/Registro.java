@@ -86,16 +86,7 @@ public class Registro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //contraseña();
                 comprobarVacios();
-
-
-            /*else{
-                    ejecutarServicio("https://descubremadrid.000webhostapp.com/descubreMadrid/registro.php");
-
-                }*/
-
-
             }
         });
     }
@@ -155,13 +146,10 @@ public class Registro extends AppCompatActivity {
 
             if (radioButtonHombre.isChecked()) {
                 gene = "H";
-                Toast.makeText(getApplicationContext(), gene, Toast.LENGTH_SHORT).show();
             } else if (radioButtonMujer.isChecked()) {
                 gene = "M";
-                Toast.makeText(getApplicationContext(), gene, Toast.LENGTH_SHORT).show();
             } else if (radioButtonOtro.isChecked()) {
                 gene = "O";
-                Toast.makeText(getApplicationContext(), gene, Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -169,6 +157,7 @@ public class Registro extends AppCompatActivity {
         private void comprobarVacios () {
 
         String contra = editTextComprobarContraseña.getText().toString();
+
 
 
             if ((editTextNombre.getText().toString().isEmpty()) && (editTextApellidos.getText().toString().isEmpty()) && (editTextCorreo.getText().toString().isEmpty()) && ((gene == "V") && (editTextContraseña.getText().toString().isEmpty()) && (editTextComprobarContraseña.getText().toString().isEmpty()))) {

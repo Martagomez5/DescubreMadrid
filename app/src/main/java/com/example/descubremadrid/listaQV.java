@@ -8,12 +8,13 @@ public class listaQV {
     public String idLugar;
     public String nombreLugar;
     public String tipoLugar;
-    public String precioLugar;
-    public String tiempoLugar;
+    public double precioLugar;
+    public double tiempoLugar;
     public double longitud;
     public double latitud;
+    public boolean seleccionado;
 
-    public listaQV(String idLugar, String nombreLugar, String tipoLugar, String precioLugar, String tiempoLugar,double longitud,double latitud) {
+    public listaQV(String idLugar, String nombreLugar, String tipoLugar, double precioLugar, double tiempoLugar,double longitud,double latitud,boolean seleccionado) {
         this.idLugar = idLugar;
         this.nombreLugar = nombreLugar;
         this.tipoLugar = tipoLugar;
@@ -21,6 +22,7 @@ public class listaQV {
         this.tiempoLugar = tiempoLugar;
         this.longitud = longitud;
         this.latitud = latitud;
+        this.seleccionado=seleccionado;
     }
 
     public String getIdLugar() {
@@ -47,19 +49,19 @@ public class listaQV {
         this.tipoLugar = tipoLugar;
     }
 
-    public String getPrecioLugar() {
+    public double getPrecioLugar() {
         return precioLugar;
     }
 
-    public void setPrecioLugar(String precioLugar) {
+    public void setPrecioLugar(double precioLugar) {
         this.precioLugar = precioLugar;
     }
 
-    public String getTiempoLugar() {
+    public double getTiempoLugar() {
         return tiempoLugar;
     }
 
-    public void setTiempoLugar(String tiempoLugar) {
+    public void setTiempoLugar(double tiempoLugar) {
         this.tiempoLugar = tiempoLugar;
     }
 
@@ -77,5 +79,13 @@ public class listaQV {
 
     public void setLatitud(double latitud) {
         this.latitud = latitud;
+    }
+
+    public boolean isSeleccionado() {
+        return seleccionado;
+    }
+
+    public void setSeleccionado(boolean seleccionado) {
+        this.seleccionado = seleccionado;
     }
 }

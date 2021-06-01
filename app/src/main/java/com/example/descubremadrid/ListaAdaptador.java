@@ -45,7 +45,7 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
 
 
     ListaElementos listElement;
-    Spinner spinner;
+
 
 
 
@@ -109,19 +109,10 @@ public class ListaAdaptador extends RecyclerView.Adapter<ListaAdaptador.ViewHold
                         .filter(i -> i.getNombre().toUpperCase().contains(strSearch))
                         .collect(Collectors.toList());
 
-                List<ListaElementos> collect2 = mData.stream()
-                        .filter(i -> i.getTipo().toUpperCase().contains(strSearch))
-                        .collect(Collectors.toList());
-
-
                 mData.clear();
                 mData.addAll(collect);
 
-                mData.addAll(collect2);
-
             }
-
-
 
             else {
                 mData.clear();

@@ -59,9 +59,9 @@ public class Lugar extends AppCompatActivity implements SearchView.OnQueryTextLi
 
 
 
-        initViews();
-        init();
-        initListener();
+        iniciarVista();
+        iniciar();
+        iniciarBuscador();
 
         cargarLugares();
 
@@ -70,11 +70,11 @@ public class Lugar extends AppCompatActivity implements SearchView.OnQueryTextLi
 
     }
 
-    private void initViews(){
+    private void iniciarVista(){
         searchView = findViewById(R.id.svSearch);
     }
 
-    private void init() {
+    private void iniciar() {
 
         elementos = new ArrayList<>();
 
@@ -143,7 +143,7 @@ public class Lugar extends AppCompatActivity implements SearchView.OnQueryTextLi
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
-    private void initListener(){
+    private void iniciarBuscador(){
         searchView.setOnQueryTextListener(this);
     }
 

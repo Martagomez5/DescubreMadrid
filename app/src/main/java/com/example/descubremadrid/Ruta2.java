@@ -119,7 +119,7 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getRoute2();
+                Ruta();
             }
         });
     }
@@ -132,18 +132,17 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
         mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
-                enableLocationComponent(style);
-                origen = Point.fromLngLat(-3.6879269788681914, 40.405776605811546);
+                localizacion(style);
+                intermedio7 = Point.fromLngLat(-3.6879269788681914, 40.405776605811546);
 
-                destino = Point.fromLngLat(-3.6877774999999993, 40.478350607275715);
-                intermedio = Point.fromLngLat(-3.692135801974647, 40.41396986027597);
-                intermedio2 = Point.fromLngLat( -3.6940931558209624, 40.415440939668784);
-                intermedio3 = Point.fromLngLat( -3.692135801974647, 40.41396986027597);
-                intermedio4 = Point.fromLngLat(-3.6948395693135403, 40.41682476878504);
-                intermedio5 =Point.fromLngLat(-3.6892168119189557, 40.42466060358903);
-                intermedio6= Point.fromLngLat(-3.6905627671733314, 40.42541630403441);
-                intermedio7= Point.fromLngLat( -3.6882907846535353, 40.45375712631802);
-                intermedio8= Point.fromLngLat( -3.6883484539703097, 40.46744163073036);
+                destino = Point.fromLngLat(-3.684563873014845, 40.41540763404784);//Retiro
+                intermedio = Point.fromLngLat(-3.712246976236016, 40.42350601393951);//plaza españa
+                intermedio2 = Point.fromLngLat(  -3.701464799809052, 40.420027670517676);//calle gran via
+                intermedio3 = Point.fromLngLat(-3.6973238469968583,40.41887083733266);//edificio metropolis
+                intermedio4 = Point.fromLngLat(-3.705823459877266,40.41987616534495);//callao
+                intermedio5 =Point.fromLngLat(-3.6930666680101822, 40.419502914125914);//fuente cibeles
+                intermedio6= Point.fromLngLat(-3.688726271164193, 40.420147191682595);//puerta alcala
+
 
 
                 locationComponent = mapbox.getLocationComponent();
@@ -154,8 +153,8 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
 
 
                 //Toast.makeText(getApplicationContext(),locationComponent.getLastKnownLocation().getLongitude()+"+"+locationComponent.getLastKnownLocation().getLatitude(),Toast.LENGTH_LONG);
-                initSource(style);
-                initLayers(style);
+                iniciar(style);
+                iniciarLayout(style);
                 CameraPosition position = new CameraPosition.Builder()
                         .target(new LatLng(destino.latitude(), destino.longitude()))
                         .zoom(10)
@@ -163,27 +162,14 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
                         .build();
                 mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position));
 
-                getRoute(mapboxMap, origen, destino, intermedio, intermedio2,intermedio3,intermedio4, intermedio5, intermedio6, intermedio7, intermedio8);
-                mapboxMap.addOnMapClickListener(new MapboxMap.OnMapClickListener() {
-                    @Override
-                    public boolean onMapClick(@NonNull LatLng point) {
+                ruta(mapboxMap, intermedio7, destino, intermedio, intermedio2,intermedio3,intermedio4, intermedio5, intermedio6);
 
-
-
-
-                        Toast.makeText(Ruta2.this, String.format("User clicked at: %s", point.toString()), Toast.LENGTH_LONG).show();
-
-
-
-                        return true;
-                    }
-                });
             }
         });
     }
 
 
-    private void initLayers(@NonNull Style style) {
+    private void iniciarLayout(@NonNull Style style) {
 
 
         LineLayer lineLayer = new LineLayer(ROUTE_LAYER_ID, ROUTE_SOURCE_ID);
@@ -209,22 +195,20 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
 
     }
 
-    private void initSource(@NonNull Style style) {
+    private void iniciar(@NonNull Style style) {
         style.addSource(new GeoJsonSource(ROUTE_SOURCE_ID));
         String casa="hola";
         GeoJsonSource icGeoJsonSource = new GeoJsonSource(ICON_SOURCE_ID,
                 FeatureCollection.fromFeatures(new Feature[]{
 
-                        Feature.fromGeometry(Point.fromLngLat(origen.longitude(), origen.latitude())),
+                        Feature.fromGeometry(Point.fromLngLat(intermedio7.longitude(), intermedio7.latitude())),
                         Feature.fromGeometry(Point.fromLngLat(destino.longitude(), destino.latitude())),
                         Feature.fromGeometry(Point.fromLngLat(intermedio.longitude(), intermedio.latitude())),
                         Feature.fromGeometry(Point.fromLngLat(intermedio2.longitude(), intermedio2.latitude())),
                         Feature.fromGeometry(Point.fromLngLat(intermedio3.longitude(), intermedio3.latitude())),
                         Feature.fromGeometry(Point.fromLngLat(intermedio4.longitude(), intermedio4.latitude())),
                         Feature.fromGeometry(Point.fromLngLat(intermedio5.longitude(), intermedio5.latitude())),
-                        Feature.fromGeometry(Point.fromLngLat(intermedio6.longitude(), intermedio6.latitude())),
-                        Feature.fromGeometry(Point.fromLngLat(intermedio7.longitude(), intermedio7.latitude())),
-                        Feature.fromGeometry(Point.fromLngLat(intermedio8.longitude(), intermedio8.latitude()))
+                        Feature.fromGeometry(Point.fromLngLat(intermedio6.longitude(), intermedio6.latitude()))
 
                 }));
         style.addSource(icGeoJsonSource);
@@ -264,20 +248,18 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
 
     }
 
-    private void getRoute(MapboxMap mapboxMap, Point origenn, Point destinoo, Point intermedioo,Point intermedioo2,Point intermedioo3, Point intermedioo4, Point intermedioo5, Point intermedioo6, Point intermedioo7, Point intermedioo8) {
+    private void ruta(MapboxMap mapboxMap, Point origenn, Point destinoo, Point intermedioo,Point intermedioo2,Point intermedioo3, Point intermedioo4, Point intermedioo5, Point intermedioo6) {
 
 
 
         client = MapboxDirections.builder()
-                .origin(origen)
+                .origin(intermedio7)
                 .addWaypoint(intermedio)
                 .addWaypoint(intermedio2)
                 .addWaypoint(intermedio3)
                 .addWaypoint(intermedio4)
                 .addWaypoint(intermedio5)
                 .addWaypoint(intermedio6)
-                .addWaypoint(intermedio7)
-                .addWaypoint(intermedio8)
                 .destination(destino)
                 .overview(DirectionsCriteria.OVERVIEW_FULL)
                 .profile(DirectionsCriteria.PROFILE_WALKING)
@@ -291,13 +273,13 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
 
     }
 
-    private void getRoute2() {
+    private void Ruta() {
 
         RouteOptions routeOptions;
 
         double a=locationComponent.getLastKnownLocation().getLongitude();
         double b=locationComponent.getLastKnownLocation().getLatitude();
-        //origen =Point.fromLngLat(a,b);
+        origen =Point.fromLngLat(a,b);
         //MapboxOptimization.builder().accessToken(getString(R.string.token)).coordinates(puntos).build();
 
 
@@ -305,14 +287,13 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
         NavigationRoute.builder(getApplicationContext())
                 .accessToken(getString(R.string.token))
                 .origin(origen)
+                .addWaypoint(intermedio7)
                 .addWaypoint(intermedio)
                 .addWaypoint(intermedio2)
                 .addWaypoint(intermedio3)
                 .addWaypoint(intermedio4)
                 .addWaypoint(intermedio5)
                 .addWaypoint(intermedio6)
-                .addWaypoint(intermedio7)
-                .addWaypoint(intermedio8)
                 .destination(destino)
                 .profile(DirectionsCriteria.PROFILE_WALKING)
                 .build()
@@ -391,7 +372,7 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
     }
     @SuppressLint("WrongConstant")
     @SuppressWarnings({"MissingPermission"})
-    private void enableLocationComponent(@NonNull Style loadedMapStyle) {
+    private void localizacion(@NonNull Style loadedMapStyle) {
 // Check if permissions are enabled and if not request
 
 
@@ -401,7 +382,7 @@ public class Ruta2 extends AppCompatActivity implements OnMapReadyCallback,
 
 
                 final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("¿El gps esta desactivado lo desea activar?")
+                builder.setMessage("¿El gps esta desactivado lo desea activar?,Necesita activar el GPS para iniciar la ruta")
                         .setCancelable(false)
                         .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                             @Override

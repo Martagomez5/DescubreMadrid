@@ -21,16 +21,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DescubreMadrid"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".Privacidad"></activity>
+        <activity android:name=".Menu7Dias" />
+        <activity android:name=".infoItinerario7" />
+        <activity android:name=".infoItinerario6" />
+        <activity android:name=".infoItinerario5" />
+        <activity android:name=".infoItinerario4" />
+        <activity android:name=".Menu5Dias" />
+        <activity android:name=".infoItinerario3" />
+        <activity android:name=".Menu3Dias" />
+        <activity android:name=".infoItinerario2" />
+        <activity android:name=".infoItinerario1a" />
+        <activity android:name=".navegacionOptimizada" />
+        <activity android:name=".Visto" />
+        <activity android:name=".Menu2Dias" />
         <activity android:name=".infoItinerario1" />
+        <activity android:name=".Ruta7" />
+        <activity android:name=".Ruta6" />
+        <activity android:name=".Ruta5" />
+        <activity android:name=".Ruta4" />
         <activity android:name=".Ruta3" />
         <activity android:name=".Ruta2" />
         <activity android:name=".MenuItinerarios" />
+        <activity android:name=".Ruta1a" />
         <activity android:name=".Ruta1" />
         <activity android:name=".Oficinas" />
         <activity android:name=".CardQV" />
-        <activity android:name=".QV"/>
-
+        <activity android:name=".QV" />
         <activity
             android:name=".DetallesLugares"
             android:screenOrientation="portrait" />

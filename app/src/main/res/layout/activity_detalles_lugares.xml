@@ -174,13 +174,22 @@
                                 android:text="Querer ver"
                                 android:checked="false"/>
 
-                            <Button
-                                android:id="@+id/buttonGuardar"
-                                android:layout_width="199dp"
+                            <CheckBox
+                                android:id="@+id/visto"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Guardar" />
+                                android:text="Visto" />
+
                         </LinearLayout>
+
+                        <Button
+                            android:id="@+id/buttonGuardar"
+                            android:layout_width="199dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:text="Guardar" />
 
                     </LinearLayout>
 

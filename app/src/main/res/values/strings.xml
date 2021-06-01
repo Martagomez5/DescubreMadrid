@@ -19,8 +19,8 @@
 
 
     <string name="token">pk.eyJ1Ijoic2VyZ2lvcmF5bzMxIiwiYSI6ImNrb2N2eTU2cTFxZzYyeXFrNTgzbWdmMWIifQ.4n65GPZ-frVN9rDR73y66A</string>
-    <string name="user_location_permission_explanation">This app needs location permissions in order to show its functionality.</string>
-    <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
+    <string name="user_location_permission_explanation">Descubre Madrid necesita la ubicacion del dispositivo para funcionar.</string>
+    <string name="user_location_permission_not_granted">Has rechazado los permisos</string>
     <string name="successful_but_no_routes">No routes found for that location</string>
     <string name="no_success">No routes found, make sure you set the right user and access token</string>
     <string name="click_instructions">Tap on the map to select a maximum of 12 locations</string>
