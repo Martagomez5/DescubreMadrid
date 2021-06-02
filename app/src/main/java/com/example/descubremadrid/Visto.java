@@ -70,15 +70,15 @@ public class Visto extends AppCompatActivity implements Response.ErrorListener, 
         try {
             JSONObject jsonObject= new JSONObject(e);
             JSONArray arr = jsonObject.getJSONArray("sitio");
-            JSONObject jo;
+            JSONObject obejeto;
             for (int i = 0; i < arr.length(); i++) {
-                jo = arr.getJSONObject(i);
-                Iterator<String> keys = jo.keys();
+                obejeto = arr.getJSONObject(i);
+                Iterator<String> clave = obejeto.keys();
 
-                while(keys.hasNext())
+                while(clave.hasNext())
                 {
-                    String keyName = keys.next();
-                    lugares.add(jo.getString(keyName));
+                    String nombreLugar = clave.next();
+                    lugares.add(obejeto.getString(nombreLugar));
                 }
 
             }

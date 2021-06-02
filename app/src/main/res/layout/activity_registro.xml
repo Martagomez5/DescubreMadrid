@@ -8,229 +8,240 @@
     android:layout_height="match_parent"
     tools:context=".Registro">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="393dp"
-        android:layout_height="785dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-        <EditText
-            android:id="@+id/editTextNombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nombre"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.642"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.082" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextApellidos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Apellidos"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.642"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.179" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="35dp"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="214dp"
-            android:layout_height="37dp"
-            android:text="Genero"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.653"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.394" />
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="52dp"
+                    android:layout_height="46dp"
+                    app:srcCompat="@drawable/outline_perm_identity_black_24dp" />
 
-        <EditText
-            android:id="@+id/editTextCorreo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Correo"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.642"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.278" />
+                <EditText
+                    android:id="@+id/editTextNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:ems="10"
+                    android:hint="Nombre"
+                    android:inputType="textPersonName" />
 
-        <RadioGroup
-            android:id="@+id/radioGroupGenero"
-            android:layout_width="298dp"
-            android:layout_height="64dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.482">
+            </LinearLayout>
 
-            <RadioButton
-                android:id="@+id/radioButtonHombre"
-                android:layout_width="105dp"
-                android:layout_height="62dp"
-                android:text="Hombre" />
+            <LinearLayout
+                android:id="@+id/apellidos"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="35dp"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radioButtonMujer"
-                android:layout_width="105dp"
-                android:layout_height="62dp"
-                android:layout_weight="1"
-                android:text="Mujer" />
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="52dp"
+                    android:layout_height="46dp"
+                    android:layout_toLeftOf="@+id/editTextApellidos"
+                    app:srcCompat="@drawable/outline_perm_identity_black_24dp" />
 
-            <RadioButton
-                android:id="@+id/radioButtonOtro"
-                android:layout_width="105dp"
-                android:layout_height="62dp"
-                android:layout_weight="1"
-                android:text="Otro" />
+                <EditText
+                    android:id="@+id/editTextApellidos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:ems="10"
+                    android:hint="Apellidos"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
 
-        </RadioGroup>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="35dp"
+                android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/editTextComprobarContraseña"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Comprobar contraseña"
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.642"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.728" />
+                <ImageView
+                    android:id="@+id/imageViewCorreo"
+                    android:layout_width="52dp"
+                    android:layout_height="46dp"
+                    app:srcCompat="@drawable/outline_email_black_24dp" />
 
-        <EditText
-            android:id="@+id/editTextContraseña"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.642"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.61" />
+                <EditText
+                    android:id="@+id/editTextCorreo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:ems="10"
+                    android:hint="Correo"
+                    android:inputType="textEmailAddress" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/buttonRegistrarse"
-            android:layout_width="143dp"
-            android:layout_height="57dp"
-            android:enabled="true"
-            android:text="Registrarse"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.84" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp">
 
-        <ImageView
-            android:id="@+id/imageViewCorreo"
-            android:layout_width="52dp"
-            android:layout_height="46dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.046"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.277"
-            app:srcCompat="@drawable/outline_email_black_24dp" />
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/outline_perm_identity_black_24dp" />
 
-        <ImageView
-            android:id="@+id/imageViewContraseñaRegistro"
-            android:layout_width="52dp"
-            android:layout_height="46dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.046"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.608"
-            app:srcCompat="@drawable/outline_lock_black_24dp" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="214dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="7dp"
+                    android:text="Genero"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/imageViewComprobarContraseña"
-            android:layout_width="52dp"
-            android:layout_height="46dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.058"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.728"
-            app:srcCompat="@drawable/outline_lock_black_24dp" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/iniciarSesion"
-            android:layout_width="263dp"
-            android:layout_height="76dp"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="¿Ya estás registrado? Inicia Sesion"
-            android:textColor="#FF03DAC5"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.964" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="35dp"
+                android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="52dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="128dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/outline_perm_identity_black_24dp" />
+                <RadioGroup
+                    android:id="@+id/radioGroupGenero"
+                    android:layout_width="298dp"
+                    android:layout_height="64dp"
+                    android:layout_toLeftOf="@+id/editTextApellidos"
+                    android:orientation="horizontal">
+                    >
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="52dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="60dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/outline_perm_identity_black_24dp" />
+                    <RadioButton
+                        android:id="@+id/radioButtonHombre"
+                        android:layout_width="105dp"
+                        android:layout_height="62dp"
+                        android:text="Hombre" />
 
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="284dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/outline_perm_identity_black_24dp" />
+                    <RadioButton
+                        android:id="@+id/radioButtonMujer"
+                        android:layout_width="105dp"
+                        android:layout_height="62dp"
+                        android:layout_weight="1"
+                        android:text="Mujer" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <RadioButton
+                        android:id="@+id/radioButtonOtro"
+                        android:layout_width="105dp"
+                        android:layout_height="62dp"
+                        android:layout_weight="1"
+                        android:text="Otro" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewContraseñaRegistro"
+                    android:layout_width="52dp"
+                    android:layout_height="46dp"
+                    app:srcCompat="@drawable/outline_lock_black_24dp" />
+
+                <EditText
+                    android:id="@+id/editTextContraseña"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:ems="10"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewComprobarContraseña"
+                    android:layout_width="52dp"
+                    android:layout_height="46dp"
+                    app:srcCompat="@drawable/outline_lock_black_24dp" />
+
+                <EditText
+                    android:id="@+id/editTextComprobarContraseña"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:ems="10"
+                    android:hint="Comprobar contraseña"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonRegistrarse"
+                    android:layout_width="143dp"
+                    android:layout_height="57dp"
+                    android:enabled="true"
+                    android:text="Registrarse" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/iniciarSesion"
+                    android:layout_width="263dp"
+                    android:layout_height="76dp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="¿Ya estás registrado? Inicia Sesion"
+                    android:textColor="#FF03DAC5"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

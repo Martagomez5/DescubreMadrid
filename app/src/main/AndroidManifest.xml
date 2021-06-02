@@ -21,33 +21,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DescubreMadrid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Privacidad"></activity>
-        <activity android:name=".Menu7Dias" />
-        <activity android:name=".infoItinerario7" />
-        <activity android:name=".infoItinerario6" />
-        <activity android:name=".infoItinerario5" />
-        <activity android:name=".infoItinerario4" />
-        <activity android:name=".Menu5Dias" />
-        <activity android:name=".infoItinerario3" />
-        <activity android:name=".Menu3Dias" />
-        <activity android:name=".infoItinerario2" />
-        <activity android:name=".infoItinerario1a" />
-        <activity android:name=".navegacionOptimizada" />
-        <activity android:name=".Visto" />
-        <activity android:name=".Menu2Dias" />
-        <activity android:name=".infoItinerario1" />
-        <activity android:name=".Ruta7" />
-        <activity android:name=".Ruta6" />
-        <activity android:name=".Ruta5" />
-        <activity android:name=".Ruta4" />
-        <activity android:name=".Ruta3" />
-        <activity android:name=".Ruta2" />
-        <activity android:name=".MenuItinerarios" />
-        <activity android:name=".Ruta1a" />
-        <activity android:name=".Ruta1" />
-        <activity android:name=".Oficinas" />
-        <activity android:name=".CardQV" />
-        <activity android:name=".QV" />
+        <activity android:name=".Privacidad" android:screenOrientation="portrait"></activity>
+        <activity android:name=".Menu7Dias" android:screenOrientation="portrait"/>
+        <activity android:name=".infoItinerario7" android:screenOrientation="portrait"/>
+        <activity android:name=".infoItinerario6" android:screenOrientation="portrait"/>
+        <activity android:name=".infoItinerario5" android:screenOrientation="portrait"/>
+        <activity android:name=".infoItinerario4" android:screenOrientation="portrait"/>
+        <activity android:name=".Menu5Dias" android:screenOrientation="portrait"/>
+        <activity android:name=".infoItinerario3" android:screenOrientation="portrait"/>
+        <activity android:name=".Menu3Dias" android:screenOrientation="portrait"/>
+        <activity android:name=".infoItinerario2" android:screenOrientation="portrait"/>
+        <activity android:name=".infoItinerario1a" android:screenOrientation="portrait"/>
+        <activity android:name=".navegacionOptimizada" android:screenOrientation="portrait"/>
+        <activity android:name=".Visto" android:screenOrientation="portrait"/>
+        <activity android:name=".Menu2Dias" android:screenOrientation="portrait"/>
+        <activity android:name=".infoItinerario1" android:screenOrientation="portrait"/>
+        <activity android:name=".Ruta7" android:screenOrientation="portrait"/>
+        <activity android:name=".Ruta6" android:screenOrientation="portrait"/>
+        <activity android:name=".Ruta5" android:screenOrientation="portrait"/>
+        <activity android:name=".Ruta4" android:screenOrientation="portrait"/>
+        <activity android:name=".Ruta3" android:screenOrientation="portrait"/>
+        <activity android:name=".Ruta2" android:screenOrientation="portrait"/>
+        <activity android:name=".MenuItinerarios" android:screenOrientation="portrait"/>
+        <activity android:name=".Ruta1a" android:screenOrientation="portrait"/>
+        <activity android:name=".Ruta1" android:screenOrientation="portrait"/>
+        <activity android:name=".Oficinas" android:screenOrientation="portrait"/>
+        <activity android:name=".CardQV" android:screenOrientation="portrait"/>
+        <activity android:name=".QV" android:screenOrientation="portrait"/>
         <activity
             android:name=".DetallesLugares"
             android:screenOrientation="portrait" />
